@@ -1,0 +1,6 @@
+- repo: "Flatbed.MDI"
+  tag: "v1.0"
+  date: "01.01.2025"
+  files:
+    - name: Flatbed.MDI_v1.2.32.zip
+    - url: \Flatbed.MDI\Flatbed.MDI_v1.2.32.zip
