@@ -5,9 +5,9 @@ aside {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
   overflow-x: hidden;
   padding-top: 20px;
+  border-right: 1px solid #f2f3f3;
 }
 
 aside a {
@@ -18,7 +18,7 @@ aside a {
 }
 
 aside a:hover {
-  color: #f1f1f1;
+  text-decoration: underline;
 }
 
 main {
