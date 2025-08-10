@@ -1,3 +1,10 @@
 theme: jekyll-theme-minimal
 title: DKorablin repositories
 description: The list of releases from some of private repositories
+
+defaults:
+  -
+    scope:
+      path: ""   # applies to all files
+    values:
+      layout: default
