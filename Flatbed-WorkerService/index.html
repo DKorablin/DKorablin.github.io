@@ -1,0 +1,19 @@
+---
+layout: default
+title: Flatbed.WorkerService
+---
+
+<h1>Flatbed.WorkerService</h1>
+
+<ul>
+  {% for release in site.data.Flatbed-WorkerService %}
+    <li>
+      <strong>{{ release.tag }}</strong> ({{ release.date }})
+      <ul>
+      {% for file in release.files %}
+        <li><a href="{{ file.url }}">{{ file.name }}</a></li>
+      {% endfor %}
+      </ul>
+    </li>
+  {% endfor %}
+</ul>
