@@ -1,0 +1,39 @@
+$aside-width: 220px;
+
+aside {
+  height: 100%;
+  width: $aside-width;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  border-right: 1px solid #f2f3f3;
+
+  a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    color: #818181;
+    display: block;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+main {
+  // Use the variable to match the aside width
+  margin-left: $aside-width;
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  aside {
+    padding-top: 15px;
+    a {
+      font-size: 18px;
+    }
+  }
+}

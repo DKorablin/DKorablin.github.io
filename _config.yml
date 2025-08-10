@@ -7,3 +7,7 @@ defaults:
       path: ""   # applies to all files
     values:
       layout: default
+
+sass:
+  sass_dir: _sass
+  style: compressed
