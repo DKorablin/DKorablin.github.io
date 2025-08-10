@@ -1,0 +1,23 @@
+<h2>Repositories</h2>
+<ul>
+{% assign sorted_repos = site.data | sort %}
+{% for repo in sorted_repos %}
+  {% assign repo_name = repo[0] %}
+  {% assign releases = repo[1] %}
+  <li>
+    <strong>{{ repo_name }}</strong>
+    <ul>
+      {% for release in releases %}
+        <li>
+          {{ release.tag }} ({{ release.date }})
+          <ul>
+            {% for file in release.files %}
+              <li><a href="{{ file.url }}">{{ file.name }}</a></li>
+            {% endfor %}
+          </ul>
+        </li>
+      {% endfor %}
+    </ul>
+  </li>
+{% endfor %}
+</ul>
