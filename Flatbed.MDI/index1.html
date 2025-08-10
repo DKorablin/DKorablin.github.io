@@ -1,0 +1,25 @@
+---
+layout: default
+title: Project Releases
+---
+
+<h1>Available Releases</h1>
+
+{% assign repos = site.data.FlatbedMDI | map: "repo" | uniq %}
+
+{% for repo in repos %}
+  <h2>{{ repo }}</h2>
+  <ul>
+  {% assign repo_releases = site.data.FlatbedMDI | where: "repo", repo %}
+  {% for release in repo_releases %}
+    <li>
+      <strong>{{ release.tag }}</strong> ({{ release.date }})
+      <ul>
+      {% for file in release.files %}
+        <li><a href="{{ file.url }}">{{ file.name }}</a></li>
+      {% endfor %}
+      </ul>
+    </li>
+  {% endfor %}
+  </ul>
+{% endfor %}
