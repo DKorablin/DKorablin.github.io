@@ -1,14 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Flatbed.MDI</title>
-</head>
-<body>
-  <h1>Available Releases</h1>
-  <ul id="releases-list">
-  <li><a href='Flatbed.MDI_v1.2.32.zip'>Download v1.2.32</a></li>
-    <!-- New releases will be inserted here automatically -->
-  </ul>
-</body>
-</html>
+---
+layout: default
+title: Flatbed.MDI
+---
+
+<h1>Flatbed.MDI</h1>
+
+<ul>
+  {% for release in site.data.Flatbed.MDI %}
+    <li>
+      <strong>{{ release.tag }}</strong> ({{ release.date }})
+      <ul>
+      {% for file in release.files %}
+        <li><a href="{{ file.url }}">{{ file.name }}</a></li>
+      {% endfor %}
+      </ul>
+    </li>
+  {% endfor %}
+</ul>
