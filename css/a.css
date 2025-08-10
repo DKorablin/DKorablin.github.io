@@ -1,6 +1,6 @@
 aside {
   height: 100%;
-  width: 160px;
+  width: 220px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -22,7 +22,7 @@ aside a:hover {
 }
 
 main {
-  margin-left: 160px; /* Same as the width of the aside */
+  margin-left: 220px; /* Same as the width of the aside */
   padding: 0px 10px;
 }
 
