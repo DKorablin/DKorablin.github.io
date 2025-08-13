@@ -36,9 +36,10 @@ footer {
 	position:fixed;
 	left:0;
 	bottom:0;
-	width:100%;
+	width:$aside-width;
 	padding:10px;
-	border-top: $border-style;
+	border-top:$border-style;
+	border-right:$border-style;
 
 	div {font-size:10px;}
 }
