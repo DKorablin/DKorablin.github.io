@@ -28,8 +28,10 @@ aside {
 }
 
 main {
-  margin-left: $aside-width;
-  padding: 0px 10px;
+	margin-left: $aside-width;
+	padding: 0px 10px;
+
+	ul,ol {padding-left:revert}
 }
 
 footer {
