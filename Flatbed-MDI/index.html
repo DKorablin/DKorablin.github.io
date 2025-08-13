@@ -3,7 +3,7 @@ layout: default
 title: Flatbed.MDI
 ---
 
-<h1>Flatbed.MDI</h1>
+<h1>SAL Host MDI (Multiple Document Interface)</h1>
 
 <ul>
   {% for release in site.data.Flatbed-MDI %}
@@ -17,3 +17,30 @@ title: Flatbed.MDI
     </li>
   {% endfor %}
 </ul>
+
+<p>Show plugins that capable to show UI in MDI interface. As a base to MDI UI great component is used by Weifen Luo &mdash; <a href="http://sourceforge.net/projects/dockpanelsuite/">DockPanel Suite</a> (v2.3.1.0) (<a href="https://github.com/dockpanelsuite">New address</a>).</p>
+
+<h3>Automation</h3>
+<p>Host will automate following actions:</p>
+<ol>
+	<li>Location and size of application on start</li>
+	<li>Save opened windows and restore then on next start</li>
+	<li>Events handling through <code>System.Diagnostics.Trace</code> (All errors will be stored in separate window: View&rarr;Event List. All events will be stored at View&rarr;Output)</li>
+	<li>Moving window to working area after (SystemEvents.DisplaySettingsChanged) event is triggeded.</li>
+</ol>
+
+<h3>Installation</h3>
+<p>Extract all contents to empty folders, add required plugins to current directory and launch Flatbed.MDI.exe file. If you required to launch separate instance of executable, then you need to add Kernel plugin (For example Kernel.Empty) or change keys <code>SAL_KernelName</code> and <code>SAL_KernelCompany</code> in <code>Flatbed.MDI.exe.config</code> file. Without changing default kernel plugin name all plugins collection will be combined and identified as default Kernel libraries with single settings storage.</p>
+<p style="text-decoration:line-through">By default, application will search for Kernel plugin in current directory. If required to change default search plugins folder you can append argument /SAL_path: with the path to plugins folder. Example:</p>
+<pre>/SAL_path:C:\MyApplication\</pre>.
+<p>Starting from version 1.2.5989.42919, to file Flatbed.MDI.exe.config added tracing loopback for all trace events. If desired, you can redirect default trace events by editing .config file, but Output and Event List windows will not show any messages.</p>
+<h3>Breaking changes</h3>
+<p><b>18.04.2023</b> &mdash; Changed settings loading algorithm. If assembly.config file found in current directory then it will be used as base settings directory. Otherwise <code>%userProfile%\Application Data</code> folder is used to store runtime settings storage. This is done to help transfer configured application and all required plugins to different user machine.</p>
+<p><b>22.02.2022</b> &mdash; Host will scan current folder and subfolders for plugins. This is done to prevent DLL hell in one folder and combine plugins with reference in separate folders</p> <p><b>31.05.2016</b> &mdash; Path to another plugins folder specified through external <code>IPluginProvider</code>. Host will search for plugins only in current folder.</p>
+<p><b>10.02.2013</b> &mdash; Changed default settings folder. Now instead of <code>%UserProfile%\My Documents</code> files are stored in. <code>%UserProfile%\Application Data</code>.</p>
+
+<h3>Requirements</h3>
+<p>Host is written on .NET Framework 3.5 because of DockPanel Suite limitations</p>
+
+<h3>Examples</h3>
+<p style="text-align:center"> <img alt="Web Harvester" src="/Gallery.axd?M=0&K=25_107&S=640x480"/> <img alt="Task management system" src="/Gallery.axd?M=0&K=25_109&S=640x480"/> <img alt="Разнообразные модули" src="/Gallery.axd?M=0&K=25_181&S=640x480"/> </p>

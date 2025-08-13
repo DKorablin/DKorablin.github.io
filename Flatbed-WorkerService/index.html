@@ -3,7 +3,7 @@ layout: default
 title: Flatbed.WorkerService
 ---
 
-<h1>Flatbed.WorkerService</h1>
+<h1>Host based as Windows Service applicationHost based as Windows Service application</h1>
 
 <ul>
   {% for release in site.data.Flatbed-WorkerService %}
@@ -17,3 +17,75 @@ title: Flatbed.WorkerService
     </li>
   {% endfor %}
 </ul>
+
+<p>This host is well suited for modules that do not require user interaction but need to be constantly running. For example it can be some applications that tracking banking transactions, system monitoring, launching some logic without user interaction, ServiceBus, post-processing, Telegram bot etc.</p>
+<p>This host can be installed from command line and it's using Win32 API functions from <code>advapi32.dll</code> library.</p>
+<p>By default all tracing logs will be stored in file: <code>C:\log\Flatbed.WinService.log</code> therefore, if you want to see the logs, you need to create this folder on the file system, and if you want to change the behavior of the trace component, you need to edit the section <code>&lt;system.diagnostics&gt;</code> in <code>Flatbed.WinService.exe.config</code> file.</p>
+<p>Starting from version 1.0.7142.31597 the key <code>Switch.System.Net.DontEnableSystemDefaultTlsVersions</code> is added to .config file, therefore, the transport encryption settings are taken from the registry, and not from .NET configuration.</p>
+
+<b>Warning</b>
+<p>Before launching executable don't forget to add <code>/?</code> key for a list of possible commands. By default when launching service without arguments (list follows), host will launched as console application, will try to load all plugins and started not as a service but as console application. This is done to check is necessary for integration testings to simplify check how all loaded plugins are interacted with each other.</p>
+
+<h3>Arguments</h3>
+<p>Primary arguments to interact with host before launching:</p>
+<ul>
+	<li><code>/Install (/I)</code> &mdash; Install service (additional keys see below)</li>
+	<li><code>/Uninstall (/U)</code> &mdash; Uninstall service (additional keys see below)</li>
+	<li><code>/Help (/?)</code> &mdash; Get help of all commands. (Help renders from attributes, so some formatting might not be pretty)</li> 
+	<li><code>/Debug</code> &mdash; Launch service from command line. Convenient to debug plugins.</li>
+</ul>
+
+<h3>Additional arguments</h3>
+<p>This arguments are used to customize service in install and uninstall time.</p>
+<ul>
+	<li><code>/ServiceName:<span style="color:gray">{SALFlatbedSvc}</span> (/N:<span style="color:gray">{SALFlatbedSvc}</span>)</code> &mdash; Specify service name (Used in install and uninstall time)</li>
+	<li><code>/DisplayName:<span style="color:gray">{SAL Flatbed Service}</span> (/D:<span style="color:gray">{SAL Flatbed Service}</span>)</code> &mdash; Specify service display name</li>
+	<li><code>/Arguments:<span style="color:gray">{null}</span> (/A:<span style="color:gray">{null}</span>)</code> &mdash; Arguments that will be available when starting the service via <code>System.Environment.GetCommandLineArgs()</code>.</li>
+	<li><code>/Acess:<span style="color:gray">{AllAccess}</span> (/R:<span style="color:gray">{AllAccess}</span>)</code> &mdash; Service access level. Available values (String value is used):
+		<ul>
+			<li><code>QueryConfig (0x0001)</code> &mdash; Required to call the QueryServiceConfig and QueryServiceConfig2 functions to query the service configuration.</li>
+			<li><code>ChangeConfig (0x0002)</code> &mdash; Required to call the ChangeServiceConfig or ChangeServiceConfig2 function to change the service configuration. Because this grants the caller the right to change the executable file that the system runs, it should be granted only to administrators</li>
+			<li><code>QueryStatus (0x0004)</code> &mdash; Required to call the QueryServiceStatus or QueryServiceStatusEx function to ask the service control manager about the status of the service. Required to call the NotifyServiceStatusChange function to receive notification when a service changes status</li>
+			<li><code>EnumerateDependencies (0x0008)</code> &mdash; Required to call the EnumDependentServices function to enumerate all the services dependent on the service</li>
+			<li><code>Start (0x0010)</code> &mdash; Required to call the StartService function to start the service</li>
+			<li><code>Stop (0x0020)</code> &mdash; Required to call the ControlService function to stop the service</li>
+			<li><code>PauseContinue (0x0040)</code> &mdash; Required to call the ControlService function to pause or continue the service</li>
+			<li><code>Interrogate (0x0080)</code> &mdash; Required to call the ControlService function to ask the service to report its status immediately</li>
+			<li><code>UserDefinedControl (0x0100)</code> &mdash; Required to call the ControlService function to specify a user-defined control code</li>
+			<li><code>StandartRightsRequired (0xF0000)</code> &mdash; </li>
+			<li><code>AllAccess</code> &mdash; All of the above</li>
+		</ul>
+	</li>
+	<li><code>/Type:<span style="color:gray">{Win32OwnProcess}</span> (/T:<span style="color:gray">{Win32OwnProcess}</span>)</code> &mdash; Service type. Available values (String values is used):
+		<ul>
+			<li><code>KernelDriver (0x00000001)</code> &mdash; Driver service</li>
+			<li><code>FileSystemDriver (0x00000002)</code> &mdash; File system driver service</li>
+			<li><code>Adapter (0x00000004)</code> &mdash; Reserved</li>
+			<li><code>RecognizerDriver (0x00000008)</code> &mdash; Reserved</li>
+			<li><code>Win32OwnProcess (0x00000010)</code> &mdash; Service that runs in its own process</li>
+			<li><code>Win32ShareProcess (0x00000020)</code> &mdash; Service that shares a process with one or more other services</li>
+			<li><code>InteractiveProcess (0x00000100)</code> &mdash; The service can interact with the desktop</li>
+		</ul>
+	</li>
+	<li><code>/Start:<span style="color:gray">{BootStart}</span> (/S:<span style="color:gray">{BootStart}</span>)</code> &mdash; Service launch rules. Available values (String value is used):
+		<ul>
+			<li><code>BootStart (0x00000000)</code> &mdash; A device driver started by the system loader. This value is valid only for driver services</li>
+			<li><code>SystemStart (0x00000001)</code> &mdash; A device driver started by the IoInitSystem function. This value is valid only for driver services</li>
+			<li><code>AutoStart (0x00000002)</code> &mdash; A service started automatically by the service control manager during system startup. For more information, see Automatically Starting Services</li>
+			<li><code>DemandStart (0x00000003)</code> &mdash; A service started by the service control manager when a process calls the StartService function. For more information, see Starting Services on Demand</li>
+			<li><code>Disabled (0x00000004)</code> &mdash; A service that cannot be started. Attempts to start the service result in the error code ERROR_SERVICE_DISABLED</li>
+		</ul>
+	</li>
+	<li><code>/Error:<span style="color:gray">{Normal}</span> (/E:<span style="color:gray">{Normal}</span>)</code> &mdash; Service behavior when error is occurred in the launch time. Available values (String values is used):
+		<ul>
+			<li><code>Ignore (0x00000000)</code> &mdash; The startup program ignores the error and continues the startup operation</li>
+			<li><code>Normal (0x00000001)</code> &mdash; The startup program logs the error in the event log but continues the startup operation</li>
+			<li><code>Severe (0x00000002)</code> &mdash; The startup program logs the error in the event log. If the last-known-good configuration is being started, the startup operation continues. Otherwise, the system is restarted with the last-known-good configuration.</li>
+			<li><code>Critical (0x00000003)</code> &mdash; The startup program logs the error in the event log, if possible. If the last-known-good configuration is being started, the startup operation fails. Otherwise, the system is restarted with the last-known good configuration.</li>
+		</ul>
+	</li>
+	<li><code>/Dependencies:<span style="color:gray">{null}</span></code> &mdash; A list of system names of services, separated by commas, that must be started before starting this service.</li>
+	<li><code>/Login:<span style="color:gray">{NT AUTHORITY\NetworkService}</span> (/L:<span style="color:gray">{NT AUTHORITY\NetworkService}</span>)</code> &mdash; User that is used to run current service as</li>
+	<li><code>/Password:<span style="color:gray">{null}</span> (/P:<span style="color:gray">{null}</span>)</code> &mdash; The password under which the service will be launched. For the <code>NetworkService</code> account of the current machine, no password is required</li>
+</ul>
+<p>In total, of all the parameters, only <code>lpdwTagId</code> &amp; <code>lpLoadOrderGroup</code> are missed (See <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms682450(v=vs.85).aspx">CreateService</a>). Unfortunately I don't find any appliance that's why I dont know where to inmplement &amp; test them. If you got good example where those arguments are used I can implement them.</p>
