@@ -15,15 +15,15 @@
 	<body>
 		<aside>
 			{% include toc.html %}
-		</aside>
-
-		<main>
-			{{ content }}
 
 			<footer>
 				<a href="https://github.com/DKorablin">My GitHub</a>
 				<div>Built on {{ site.time | date: "%d.%m.%Y %H:%M:%S" }}</div>
 			</footer>
+		</aside>
+
+		<main>
+			{{ content }}
 		</main>
 	</body>
 </html>
