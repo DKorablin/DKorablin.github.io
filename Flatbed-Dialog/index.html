@@ -3,7 +3,7 @@ layout: default
 title: Flatbed.Dialog
 ---
 
-<h1>Flatbed.Dialog</h1>
+<h1>SAL Host Dialog (Dialog based Interface)</h1>
 
 <ul>
   {% for release in site.data.Flatbed-Dialog %}
@@ -17,3 +17,24 @@ title: Flatbed.Dialog
     </li>
   {% endfor %}
 </ul>
+
+<p>The display interface is an array of dialog boxes, the menu is located in the taskbar. As an icon for the panel, the icon from the Kernel plugin is used. Otherwise default icon is used from executable resources.</p>
+
+<h3>Automation</h3>
+Host will automate following tasks:
+<ol>
+	<li>"Stick" windows to each other based on component <a href="http://www.codeproject.com/Articles/6045/Sticky-Windows-How-to-make-your-top-level-forms-to">StickyWindow</a>.</li>
+	<li>Save on close and restore windows positions and sizes</li>
+	<li>Restore closed windows on opening</li>
+</ol>
+
+<h3>Installation</h3>
+<p>Extract all contents to empty folders, add required plugins to current directory and launch Flatbed.Dialog.exe file. If you required to launch separate instance of executable, then you need to add Kernel plugin (For example Kernel.Empty) or change keys SAL_KernelName and SAL_KernelCompany in Flatbed.MDI.exe.config file. Without changing default kernel plugin name all plugins collection will be combined and identified as default Kernel libraries with single settings storage. By default, application will search for Kernel plugin in current directory. If required to change default search plugins folder you can append argument /SAL_path: with the path to plugins folder. Example: /SAL_path:C:\MyApplication\. Tracing loopback is implemented for all trace events. If desired, you can redirect default trace events by editing .config file, but Output and Event List windows will not show any messages.</p>
+
+<h3>Breaking changes</h3>
+<p><b>30.11.2023</b> &mdash; Added support for .NET 7.0 version and some plugins may not fully support it. For backward compatibility package contains both executables for .NET and .NET Framework.</p>
+<p><b>18.04.2023</b> &mdash; Changed settings loading algorithm. If assembly.config file found in current directory then it will be used as base settings directory. Otherwise <code>%userProfile%\Application Data</code> folder is used to store runtime settings storage. This is done to help transfer configured application and all required plugins to different user machine</p>
+<p><b>10.02.2013</b> &mdash; Changed default settings folder. Now instead of <code>%UserProfile%\My Documents</code> files are stored in <code>%UserProfile%\Application Data</code></p>
+
+<h3>Examples</h3>
+<p style="text-align:center"><img src="/Gallery.axd?M=0&K=25_111&S=640x480" alt="TT Manager"/></p> <p style="text-align:center"><img src="/Gallery.axd?M=0&K=25_112&S=640x480" alt="Shared"/></p>

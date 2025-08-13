@@ -3,7 +3,7 @@ layout: default
 title: Flatbed.Dialog.Lite
 ---
 
-<h1>Flatbed.Dialog.Lite</h1>
+<h1>SAL Host Dialog [Lite] (Dialog based Interface basic version)</h1>
 
 <ul>
   {% for release in site.data.Flatbed-Dialog-Lite %}
@@ -17,3 +17,15 @@ title: Flatbed.Dialog.Lite
     </li>
   {% endfor %}
 </ul>
+
+<p>Basic dialog based interface to quickly open any plugin with UI.</p>
+<p>It will starts to enumerate all loaded plugins and try to open it UI by invoking <code>IMenuItem.OnClick</code>. It's done to simplify procedure to run simple tasks without describing user where he need to click to open an application.</p>
+<p>It contains minimum logic and will do nothing if there is no any plugins in current folder. All launch logs will be stored to Flatbed.Dialog.Lite.log file.</p>
+
+<h3>Automation</h3>
+Host will automate following tasks:
+<ol>
+	<li>Open all found dialog windows</li>
+	<li>"Stick" windows to each other based on component <a href="http://www.codeproject.com/Articles/6045/Sticky-Windows-How-to-make-your-top-level-forms-to">StickyWindow</a>.</li>
+	<li>Save on close and restore windows positions and sizes</li>
+</ol>
