@@ -3,8 +3,10 @@
   files:
     - name: "Flatbed.Dialog_v1.1.27.zip"
       url: "/Flatbed-Dialog/v1.1.27/Flatbed.Dialog_v1.1.27.zip"
+      size: 477971
 - tag: "v1.1.25"
   date: "2025-08-10"
   files:
     - name: "Flatbed.Dialog_v1.1.25.zip"
       url: "/Flatbed-Dialog/v1.1.25/Flatbed.Dialog_v1.1.25.zip"
+      size: 478138

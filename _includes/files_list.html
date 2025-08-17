@@ -1,0 +1,35 @@
+<h2>Releases ({{ releases | size }})</h2>
+
+<ul>
+{% for release in releases %}
+  <li>
+    <strong>{{ release.tag }}</strong> ({{ release.date }})
+    <ul>
+    {% for file in release.files %}
+      {% assign static_file = site.static_files | where: "path", file.url | first %}
+      <li>
+        <a href="{{ file.url }}">{{ file.name }}</a>
+        {% if static_file %}
+          {% assign size_bytes = static_file.size %}
+
+          {% if size_bytes < 1024 %}
+            ({{ size_bytes }} B)
+          {% elsif size_bytes < 1048576 %}
+            {% assign size_kb = size_bytes | divided_by: 1024.0 %}
+            ({{ size_kb | round: 2 }} KB)
+          {% elsif size_bytes < 1073741824 %}
+            {% assign size_mb = size_bytes | divided_by: 1048576.0 %}
+            ({{ size_mb | round: 2 }} MB)
+          {% else %}
+            {% assign size_gb = size_bytes | divided_by: 1073741824.0 %}
+            ({{ size_gb | round: 2 }} GB)
+          {% endif %}
+        {% else %}
+          (size unknown)
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  </li>
+{% endfor %}
+</ul>

@@ -5,19 +5,7 @@ title: Flatbed.MDI
 
 <h1>SAL Host MDI (Multiple Document Interface)</h1>
 
-<h2>Releases ({{ site.data.Flatbed-MDI | size }})</h2>
-<ul>
-  {% for release in site.data.Flatbed-MDI %}
-    <li>
-      <strong>{{ release.tag }}</strong> ({{ release.date }})
-      <ul>
-      {% for file in release.files %}
-        <li><a href="{{ file.url }}">{{ file.name }}</a></li>
-      {% endfor %}
-      </ul>
-    </li>
-  {% endfor %}
-</ul>
+{% include file_list.html releases=site.data.Flatbed-MDI %}
 
 <p>Show plugins that capable to show UI in MDI interface. As a base to MDI UI great component is used by Weifen Luo &mdash; <a href="http://sourceforge.net/projects/dockpanelsuite/">DockPanel Suite</a> (v2.3.1.0) (<a href="https://github.com/dockpanelsuite">New address</a>).</p>
 

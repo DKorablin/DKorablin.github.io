@@ -5,19 +5,7 @@ title: Flatbed.MDI.Avalon
 
 <h1>SAL Host MDI [Avalon]</h1>
 
-<h2>Releases ({{ site.data.Flatbed-MDI-Avalon | size }})</h2>
-<ul>
-  {% for release in site.data.Flatbed-MDI-Avalon %}
-    <li>
-      <strong>{{ release.tag }}</strong> ({{ release.date }})
-      <ul>
-      {% for file in release.files %}
-        <li><a href="{{ file.url }}">{{ file.name }}</a></li>
-      {% endfor %}
-      </ul>
-    </li>
-  {% endfor %}
-</ul>
+{% include file_list.html releases=site.data.Flatbed-MDI-Avalon %}
 
 MDI interface based on WPF <a href="https://github.com/Dirkster99/AvalonDock">Avalon MDI</a> component.
 
