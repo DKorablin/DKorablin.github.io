@@ -1,7 +1,7 @@
-<h2>Releases ({{ releases | size }})</h2>
+<h2>Releases ({{ include.releases | size }})</h2>
 
 <ul>
-{% for release in releases %}
+{% for release in include.releases %}
   <li>
     <strong>{{ release.tag }}</strong> ({{ release.date }})
     <ul>
