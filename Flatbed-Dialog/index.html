@@ -5,19 +5,9 @@ title: Flatbed.Dialog
 
 <h1>SAL Host Dialog (Dialog based Interface)</h1>
 
-<h2>Releases ({{ site.data.Flatbed-Dialog | size }})</h2>
-<ul>
-  {% for release in site.data.Flatbed-Dialog %}
-    <li>
-      <strong>{{ release.tag }}</strong> ({{ release.date }})
-      <ul>
-      {% for file in release.files %}
-        <li><a href="{{ file.url }}">{{ file.name }}</a></li>
-      {% endfor %}
-      </ul>
-    </li>
-  {% endfor %}
-</ul>
+{% include file_list.html releases=site.data.Flatbed-Dialog %}
+
+<h3>Description</h3>
 
 <p>The display interface is an array of dialog boxes, the menu is located in the taskbar. As an icon for the panel, the icon from the Kernel plugin is used. Otherwise default icon is used from executable resources.</p>
 

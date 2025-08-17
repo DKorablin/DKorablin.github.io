@@ -5,19 +5,7 @@ title: Flatbed.WorkerService
 
 <h1>Host based as Windows Service application</h1>
 
-<h2>Releases ({{ site.data.Flatbed-WorkerService | size }})</h2>
-<ul>
-  {% for release in site.data.Flatbed-WorkerService %}
-    <li>
-      <strong>{{ release.tag }}</strong> ({{ release.date }})
-      <ul>
-      {% for file in release.files %}
-        <li><a href="{{ file.url }}">{{ file.name }}</a></li>
-      {% endfor %}
-      </ul>
-    </li>
-  {% endfor %}
-</ul>
+{% include file_list.html releases=site.data.Flatbed-WorkerService %}
 
 <p>This host is well suited for modules that do not require user interaction but need to be constantly running. For example it can be some applications that tracking banking transactions, system monitoring, launching some logic without user interaction, ServiceBus, post-processing, Telegram bot etc.</p>
 <p>This host can be installed from command line and it's using Win32 API functions from <code>advapi32.dll</code> library.</p>
