@@ -1,0 +1,9 @@
+- tag: "v1.2.31"
+  date: "2025-08-23"
+  files:
+    - name: "Flatbed.MDI_v1.2.31_net8.0-windows.zip"
+      url: "/Flatbed-MDI/v1.2.31/Flatbed.MDI_v1.2.31_net8.0-windows.zip"
+      size: 384911
+    - name: "Flatbed.MDI_v1.2.31_v3.5.zip"
+      url: "/Flatbed-MDI/v1.2.31/Flatbed.MDI_v1.2.31_v3.5.zip"
+      size: 349219
