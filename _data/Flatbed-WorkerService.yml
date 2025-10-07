@@ -1,3 +1,12 @@
+- tag: "v1.2.15"
+  date: "2025-10-07"
+  files:
+    - name: "Flatbed.WorkerService_v1.2.15_net35.zip"
+      url: "/Flatbed-WorkerService/v1.2.15/Flatbed.WorkerService_v1.2.15_net35.zip"
+      size: 71858
+    - name: "Flatbed.WorkerService_v1.2.15_net8.0-windows.zip"
+      url: "/Flatbed-WorkerService/v1.2.15/Flatbed.WorkerService_v1.2.15_net8.0-windows.zip"
+      size: 1927170
 - tag: "v1.2.14"
   date: "2025-08-23"
   files:
