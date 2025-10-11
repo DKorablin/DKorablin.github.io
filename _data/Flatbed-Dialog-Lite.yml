@@ -1,3 +1,15 @@
+- tag: "v1.1.18"
+  date: "2025-10-11"
+  files:
+    - name: "Flatbed.Dialog.Lite_v1.1.18_net35.zip"
+      url: "/Flatbed-Dialog-Lite/v1.1.18/Flatbed.Dialog.Lite_v1.1.18_net35.zip"
+      size: 108130
+    - name: "Flatbed.Dialog.Lite_v1.1.18_net48.zip"
+      url: "/Flatbed-Dialog-Lite/v1.1.18/Flatbed.Dialog.Lite_v1.1.18_net48.zip"
+      size: 108654
+    - name: "Flatbed.Dialog.Lite_v1.1.18_net8.0-windows.zip"
+      url: "/Flatbed-Dialog-Lite/v1.1.18/Flatbed.Dialog.Lite_v1.1.18_net8.0-windows.zip"
+      size: 191385
 - tag: "v1.1.17"
   date: "2025-10-07"
   files:
