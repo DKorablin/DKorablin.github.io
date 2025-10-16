@@ -1,3 +1,12 @@
+- tag: "v1.1.29"
+  date: "2025-10-16"
+  files:
+    - name: "Flatbed.Dialog_v1.1.29_net35.zip"
+      url: "/Flatbed-Dialog/v1.1.29/Flatbed.Dialog_v1.1.29_net35.zip"
+      size: 373878
+    - name: "Flatbed.Dialog_v1.1.29_net8.0-windows.zip"
+      url: "/Flatbed-Dialog/v1.1.29/Flatbed.Dialog_v1.1.29_net8.0-windows.zip"
+      size: 654589
 - tag: "v1.1.28"
   date: "2025-10-15"
   files:
