@@ -1,3 +1,9 @@
+- tag: "v1.0.25"
+  date: "2025-10-27"
+  files:
+    - name: "Flatbed.MDI.Avalon_v1.0.25_net8.0-windows.zip"
+      url: "/Flatbed-MDI-Avalon/v1.0.25/Flatbed.MDI.Avalon_v1.0.25_net8.0-windows.zip"
+      size: 1094140
 - tag: "v1.0.24"
   date: "2025-10-19"
   files:
