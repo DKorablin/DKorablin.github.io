@@ -1,3 +1,12 @@
+- tag: "v1.2.37"
+  date: "2026-02-13"
+  files:
+    - name: "Flatbed.MDI_v1.2.37_net48.zip"
+      url: "/Flatbed-MDI/v1.2.37/Flatbed.MDI_v1.2.37_net48.zip"
+      size: 716866
+    - name: "Flatbed.MDI_v1.2.37_net8.0-windows.zip"
+      url: "/Flatbed-MDI/v1.2.37/Flatbed.MDI_v1.2.37_net8.0-windows.zip"
+      size: 995296
 - tag: "v1.2.36"
   date: "2025-11-04"
   files:
