@@ -1,0 +1,96 @@
+---
+layout: default
+title: AutoClickerMaui
+---
+
+<h1>AutoClicker [MAUI]</h1>
+
+{% include files_list.html releases=site.data.AutoClickerMaui %}
+
+<p><b>AutoClickerMaui</b> is a free, open-source Android app that automates repetitive tapping in any app or on your home screen. You record a sequence of taps once — either at fixed coordinates or targeting a specific image on screen — and the app replays them in a continuous loop, with no root access required.</p>
+
+<h3>Features</h3>
+
+<ul>
+	<li><b>Record & replay tap sequences.</b> Draw numbered action markers directly on top of any app to build a "group" of steps, then play the whole sequence back on a loop.</li>
+	<li>
+		<b>Two click modes:</b>
+		<ul>
+			<li><b>Coordinate click</b> — taps a fixed (X, Y) point every time.</li>
+			<li><b>Image click</b> — crop a small region of the screen as a template; during playback the app repeatedly scans the screen and taps once that image appears (or taps the live matched location as it moves), so sequences keep working even if elements shift on screen.</li>
+		</ul>
+	</li>
+	<li><b>Per-app groups.</b> Each recorded sequence remembers which app it was recorded against (shown with that app's name and icon), or is tagged "Desktop" if recorded on the home screen. Selecting a group can bring its target app to the foreground automatically for editing.</li>
+	<li><b>Floating overlay controls.</b> A draggable "Actions" button floats over your screen while recording or playing: drag it out of the way, tap it to start/stop the loop, and long-press markers to reposition them.</li>
+	<li>
+		<b>Tunable timing</b>, via the in-app Settings page:
+		<ul>
+			<li>Delay between clicks (default 500 ms)</li>
+			<li>Image search poll interval — how often the app rescans for an image target (default 1000 ms)</li>
+			<li>Tap duration — length of the simulated tap gesture (default 100 ms)</li>
+		</ul>
+	</li>
+	<li><b>No root required.</b> Taps and screenshots are performed through Android's built-in Accessibility Service APIs.</li>
+</ul>
+
+<h3>How it works</h3>
+
+<ol>
+	<li>**Grant permissions** the first time you open the app — see [Permissions](#permissions) below.</li>
+	<li>On the **home screen**, tap **Record** to start a new group, or select an existing group and tap **Edit** to modify it.</li>
+	<li>A floating overlay appears over whatever app is in front. Tap anywhere to drop a numbered marker (a coordinate click), or use the crop tool to select a region of the screen to record an image-based click.</li>
+	<li>Drag markers to reposition them, or open a marker's menu to delete it.</li>
+	<li>Tap the floating **Actions** button to start playback — the app replays your recorded steps in a loop until you tap Actions again or press Back.</li>
+	<li>Back on the home screen, rename or remove any group from its "⋮" menu, and adjust timing under **Settings**.</li>
+</ol>
+
+<h3>Permissions</h3>
+
+<p>AutoClickerMaui needs the following to function:</p>
+
+<table>
+	<thead>
+		<tr>
+			<th>Permission</th>
+			<th>Why it's needed</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><b>Accessibility Service</b></td>
+			<td>Lets the app take screenshots (for image matching) and dispatch simulated taps. Must be enabled manually — the app shows a banner with a shortcut to Android's Accessibility settings if it isn't.</td>
+		</tr>
+		<tr>
+			<td><b>Display over other apps</b> (`SYSTEM_ALERT_WINDOW`)</td>
+			<td>Draws the recording/playback overlay (markers, Actions button) on top of other apps.</td>
+		</tr>
+		<tr>
+			<td><b>Foreground service / notifications</b></td>
+			<td>Keeps the overlay and click engine running reliably while another app is in the foreground; shows a persistent notification while active (required on Android 13+).</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>None of this data leaves your device — the app doesn't collect or transmit anything; screenshots taken for image matching are used only locally to locate the target and are not uploaded anywhere.</p>
+
+<h3>Requirements</h3>
+
+<ul>
+	<li>Android 5.0 (API 21) or later.</li>
+	<li>Not currently available for iOS, Windows, or macOS.</li>
+</ul>
+
+<h3>Installation</h3>
+
+<p>AutoClickerMaui isn't published on the Play Store. Each push to the main branch is automatically built, signed, and published as an APK on the project's <a href="../../releases">GitHub Releases</a> page:</p>
+
+<ol>
+	<li>Go to the <a href="../../releases">Releases</a> page and download the latest `.apk`.</li>
+	<li>On your Android device, allow installation from unknown sources if prompted.</li>
+	<li>Install the APK and open the app.</li>
+	<li>Follow the in-app permission prompts before recording your first sequence.</li>
+</ol>
+
+<h3>Disclaimer</h3>
+
+<p>Automating taps may violate the terms of service of some apps or games. Use AutoClickerMaui responsibly and at your own risk.</p>
