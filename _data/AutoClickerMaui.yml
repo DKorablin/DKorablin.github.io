@@ -1,3 +1,9 @@
+- tag: "vv1.1.0"
+  date: "2026-08-29"
+  files:
+    - name: "com.alphaomega.autoclickermaui-Signed.apk"
+      url: "/AutoClickerMaui/vv1.1.0/com.alphaomega.autoclickermaui-Signed.apk"
+      size: 53162862
 - tag: "v1.0.20"
   date: "2026-08-25"
   files:
