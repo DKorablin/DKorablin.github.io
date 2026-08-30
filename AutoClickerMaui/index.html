@@ -7,7 +7,44 @@ title: AutoClickerMaui
 
 {% include files_list.html releases=site.data.AutoClickerMaui %}
 
-<p><b>AutoClickerMaui</b> is a free, open-source Android app that automates repetitive tapping in any app or on your home screen. You record a sequence of taps once &mdash; either at fixed coordinates or targeting a specific image on screen — and the app replays them in a continuous loop, with no root access required.</p>
+<video controls width="100%">
+	<source src="Agent-1.webm" type="video/webm">
+	Your browser does not support the video tag.
+</video>
+
+<p class="screenshot-gallery">
+	<img src="UI-1-200.png" data-full="UI-1.png" alt="AutoClickerMaui UI screenshot 1" onclick="acmEnlarge(this)">
+	<img src="UI-2-200.png" data-full="UI-2.png" alt="AutoClickerMaui UI screenshot 2" onclick="acmEnlarge(this)">
+	<img src="UI-3-200.png" data-full="UI-3.png" alt="AutoClickerMaui UI screenshot 3" onclick="acmEnlarge(this)">
+</p>
+
+<div id="acm-lightbox" onclick="acmCloseEnlarge()" style="display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,0.85); cursor:zoom-out; align-items:center; justify-content:center;">
+	<img id="acm-lightbox-img" src="" alt="" style="max-width:90vw; max-height:90vh; box-shadow:0 0 20px rgba(0,0,0,0.5);">
+</div>
+
+<style>
+	.screenshot-gallery img { cursor: zoom-in; margin-right: 8px; }
+</style>
+
+<script>
+	function acmEnlarge(img) {
+		var lightbox = document.getElementById('acm-lightbox');
+		var lightboxImg = document.getElementById('acm-lightbox-img');
+		lightboxImg.src = img.getAttribute('data-full');
+		lightboxImg.alt = img.alt;
+		lightbox.style.display = 'flex';
+	}
+	function acmCloseEnlarge() {
+		document.getElementById('acm-lightbox').style.display = 'none';
+	}
+	document.addEventListener('keydown', function (e) {
+		if (e.key === 'Escape') acmCloseEnlarge();
+	});
+</script>
+
+<p><b>AutoClickerMaui</b> is a free, open-source Android app that automates repetitive tapping in any app or on your home screen.
+You record a sequence of taps once — either at fixed coordinates or targeting a specific image on screen — and the app replays them in a continuous loop, with no root access required.
+It can also hand control of the screen to an AI agent, which watches a screenshot of your app and either marks where to tap or taps for you.</p>
 
 <h3>Features</h3>
 
@@ -22,6 +59,8 @@ title: AutoClickerMaui
 	</li>
 	<li><b>Per-app groups.</b> Each recorded sequence remembers which app it was recorded against (shown with that app's name and icon), or is tagged "Desktop" if recorded on the home screen. Selecting a group can bring its target app to the foreground automatically for editing.</li>
 	<li><b>Floating overlay controls.</b> A draggable "Actions" button floats over your screen while recording or playing: drag it out of the way, tap it to start/stop the loop, and long-press markers to reposition them.</li>
+	<li><b>AI agent ("Ask AI").</b> An optional floating button lets you type a plain-language request (e.g. "tap the Buy button"); the app sends a screenshot and your request to an LLM you configure, which can either mark where to tap for you to confirm (**Show Location** mode) or tap on your behalf (**Auto Click** mode) — see [AI Agent](#ai-agent) below.</li>
+	<li><b>Conversation log.</b> A flyout page showing everything exchanged with the AI agent — your prompts, the screenshots it saw, the tool calls it made, and its replies — for transparency into what it did and why.</li>
 	<li>
 		<b>Tunable timing</b>, via the in-app Settings page:
 		<ul>
@@ -43,6 +82,24 @@ title: AutoClickerMaui
 	<li>Tap the floating <b>Actions</b> button to start playback — the app replays your recorded steps in a loop until you tap Actions again or press Back.</li>
 	<li>Back on the home screen, rename or remove any group from its "⋮" menu, and adjust timing under <b>Settings</b>.</li>
 </ol>
+
+<h3>AI Agent</h3>
+
+<p>AutoClickerMaui can call out to an AI model to help you build or drive a sequence, instead of (or alongside) recording one by hand.</p>
+
+<ol>
+	<li>Open <b>AI Agent settings</b> and choose your provider (OpenAI, Grok, Gemini, Azure OpenAI, a self-hosted/local endpoint, or GitHub Copilot CLI), then supply its endpoint URL and API key. If you have a screenshot or photo of those credentials, the <b>Scan</b> button can read them for you: it takes a photo, recognizes text on-device, and auto-fills the endpoint/key fields for you to review before saving — nothing is uploaded anywhere for this step.</li>
+	<li>Pick an <b>agent click mode</b>:
+		<ul>
+			<li><b>Show Location</b> — the agent may only view screenshots and drop markers for you to confirm; it never taps on its own.</li>
+			<li><b>Auto Click</b> — the agent may also tap on your behalf.</li>
+		</ul>
+	</li>
+	<li>While recording or playing, tap the <b>Ask AI</b> button on the overlay and type what you want done. The app sends the model a screenshot, your request, and context about the app currently in focus; the model responds by adding markers, tapping, or replying with text, which appears as a floating bubble and is recorded in the <b>Conversation log</b>.</li>
+	<li>Automation and agent runs stop automatically if you leave the target app (e.g. go home or switch apps), so the agent can't act on the wrong screen.</li>
+</ol>
+
+<p>Conversation history is kept only in memory by default for the current session and is not written to disk. No screenshot or credential data is sent anywhere except to the AI provider you configure.</p>
 
 <h3>Permissions</h3>
 
@@ -68,11 +125,14 @@ title: AutoClickerMaui
 			<td><b>Foreground service / notifications</b></td>
 			<td>Keeps the overlay and click engine running reliably while another app is in the foreground; shows a persistent notification while active (required on Android 13+).</td>
 		</tr>
+		<tr>
+			<td><b>Camera</b></td>
+			<td>Used only by the optional Connection Scan feature to photograph and auto-fill AI provider credentials; not required for tap/image automation.</td>
+		</tr>
 	</tbody>
 </table>
 
-<p>None of this data leaves your device — the app doesn't collect or transmit anything; screenshots taken for image matching are used only locally to locate the target and are not uploaded anywhere.</p>
-<p><b>Warning:</b> While using agentic mode, currently focused app is transferred to selected AI model to analyze and answer user questions.</p>
+<p>None of this data leaves your device except when you explicitly configure and use the AI Agent feature, in which case screenshots and your prompts are sent only to the AI provider you set up. Image templates used for image matching are processed only locally and are never uploaded.</p>
 
 <h3>Requirements</h3>
 

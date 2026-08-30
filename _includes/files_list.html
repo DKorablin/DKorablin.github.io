@@ -32,10 +32,11 @@
 {% if older_count > 0 %}
 {% assign show_label = "Show " | append: older_count | append: " older release" %}
 {% unless older_count == 1 %}{% assign show_label = show_label | append: "s" %}{% endunless %}
-<button
-  type="button"
+<a
+  class="toggle-older-release"
+  href="javascript:void(0)"
   onclick="toggleOlderReleases(this)"
   data-show-label="{{ show_label }}"
   data-hide-label="Hide older releases"
->{{ show_label }}</button>
+>{{ show_label }}</a>
 {% endif %}

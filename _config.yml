@@ -8,5 +8,8 @@ defaults:
     values:
       layout: default
 
+exclude:
+- scripts/
+
 sass:
   style: compressed
