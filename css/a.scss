@@ -57,3 +57,7 @@ footer {
 		}
 	}
 }
+
+// _includes/files_list.html
+.older-release { display: none; }
+.older-release.show { display: list-item; }
