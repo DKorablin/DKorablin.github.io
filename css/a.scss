@@ -61,4 +61,4 @@ footer {
 // _includes/files_list.html
 .older-release { display: none; }
 .older-release.show { display: list-item; }
-a.toggle-older-release {text-decoration: underline dashed;}
+a.toggle-older-release {text-decoration: underline dashed;display:block;margin:10px 0}
