@@ -9,6 +9,13 @@
 		<title>{{ page.title }}</title>
 	</head>
 	<body>
+		<input type="checkbox" id="nav-toggle" class="nav-toggle" />
+		<label for="nav-toggle" class="nav-burger">
+			<span></span>
+			<span></span>
+			<span></span>
+		</label>
+
 		<aside>
 			{% include toc.html %}
 
@@ -17,6 +24,8 @@
 				<div>Built on {{ site.time | date: "%d.%m.%Y %H:%M:%S" }}</div>
 			</footer>
 		</aside>
+
+		<label for="nav-toggle" class="nav-overlay"></label>
 
 		<main>
 			{{ content }}

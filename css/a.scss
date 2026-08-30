@@ -5,6 +5,18 @@
 $aside-width: 220px;
 $border-style: 1px solid #f2f3f3;
 
+.nav-toggle {
+	display: none;
+}
+
+.nav-burger {
+	display: none;
+}
+
+.nav-overlay {
+	display: none;
+}
+
 aside {
 	height: 100%;
 	width: $aside-width;
@@ -14,6 +26,9 @@ aside {
 	overflow-x: hidden;
 	padding-top: 20px;
 	border-right: $border-style;
+	background: #fff;
+	z-index: 100;
+	transition: transform 0.4s ease;
 
 	> a {
 		padding:6px 8px 6px 16px;
@@ -47,6 +62,63 @@ footer {
 	border-right:$border-style;
 
 	div {font-size:10px;}
+}
+
+@media screen and (max-width: 700px) {
+	.nav-burger {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		position: fixed;
+		top: 12px;
+		left: 12px;
+		width: 26px;
+		height: 20px;
+		z-index: 200;
+		cursor: pointer;
+
+		span {
+			display: block;
+			height: 3px;
+			width: 100%;
+			background: #818181;
+			border-radius: 2px;
+		}
+	}
+
+	.nav-overlay {
+		display: block;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.3);
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.4s ease, visibility 0.4s ease;
+		z-index: 99;
+	}
+
+	aside {
+		transform: translateX(-100%);
+	}
+
+	main {
+		margin-left: 0;
+		padding-top: 40px;
+	}
+
+	.nav-toggle:checked {
+		~ aside {
+			transform: translateX(0);
+		}
+
+		~ .nav-overlay {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
 }
 
 @media screen and (max-height: 450px) {
