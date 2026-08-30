@@ -1,0 +1,10 @@
+---
+layout: null
+---
+{%- assign latest = site.data[page.project][0] -%}
+{
+	"tag": {{ latest.tag | jsonify }},
+	"version": {{ latest.tag | remove_first: "v" | jsonify }},
+	"date": {{ latest.date | jsonify }},
+	"files": {{ latest.files | jsonify }}
+}
