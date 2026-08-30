@@ -69,12 +69,10 @@ footer {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		position: fixed;
-		top: 12px;
-		left: 12px;
+		float: left;
 		width: 26px;
 		height: 20px;
-		z-index: 200;
+		margin: 8px 12px 0 0;
 		cursor: pointer;
 
 		span {
@@ -106,7 +104,6 @@ footer {
 
 	main {
 		margin-left: 0;
-		padding-top: 40px;
 	}
 
 	.nav-toggle:checked {

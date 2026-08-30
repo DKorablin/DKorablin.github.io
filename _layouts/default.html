@@ -10,11 +10,6 @@
 	</head>
 	<body>
 		<input type="checkbox" id="nav-toggle" class="nav-toggle" />
-		<label for="nav-toggle" class="nav-burger">
-			<span></span>
-			<span></span>
-			<span></span>
-		</label>
 
 		<aside>
 			{% include toc.html %}
@@ -28,6 +23,11 @@
 		<label for="nav-toggle" class="nav-overlay"></label>
 
 		<main>
+			<label for="nav-toggle" class="nav-burger">
+				<span></span>
+				<span></span>
+				<span></span>
+			</label>
 			{{ content }}
 		</main>
 	</body>
