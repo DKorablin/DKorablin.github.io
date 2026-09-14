@@ -1,0 +1,232 @@
+---
+layout: default
+title: FakeGpsMaui
+---
+
+<h1>FakeGps [MAUI]</h1>
+
+{% include files_list.html releases=site.data.FakeGpsMaui %}
+
+<p>A GPS spoofing / mock-location application for Android, built with .NET MAUI (net10.0-android).<br>It injects a fake GPS position into the Android location stack via a persistent foreground service, letting any app on the device see whatever coordinates you choose — either a fixed point or a moving route.</p>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#usage">Usage</a><ul>
+<li><a href="#single-point-mode">Single-Point Mode</a></li>
+<li><a href="#route-mode">Route Mode</a></li>
+</ul>
+</li>
+<li><a href="#settings-reference">Settings Reference</a></li>
+<li><a href="#architecture-overview">Architecture Overview</a><ul>
+</ul>
+</li>
+<li><a href="#permissions">Permissions</a></li>
+</ul>
+
+<h2 id="features">Features</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Single-point emulation</strong></td>
+<td>Lock the device GPS to any fixed coordinate.</td>
+</tr>
+<tr>
+<td><strong>Route emulation</strong></td>
+<td>Define a sequence of waypoints; the service smoothly interpolates movement between them at a configurable speed.</td>
+</tr>
+<tr>
+<td><strong>Looping routes</strong></td>
+<td>Optionally repeat the route from the beginning when the end is reached.</td>
+</tr>
+<tr>
+<td><strong>Interactive OSM map</strong></td>
+<td>Full OpenStreetMap / Leaflet.js map embedded in the app (bundled offline — no CDN dependency at runtime). Tap the map to set a location or add route waypoints.</td>
+</tr>
+<tr>
+<td><strong>Draggable overlay window</strong></td>
+<td>A floating mini-map overlay that stays on top of other apps while emulation is running, so you can reposition the fake location without leaving your target app.</td>
+</tr>
+<tr>
+<td><strong>Start on boot</strong></td>
+<td>Automatically resumes the last emulation session after a device reboot or app update.</td>
+</tr>
+<tr>
+<td><strong>GPS noise simulation</strong></td>
+<td>Adds configurable random jitter (±N metres) to mimic realistic GPS drift.</td>
+</tr>
+<tr>
+<td><strong>Auto / manual altitude</strong></td>
+<td>Optionally forward the real device altitude or override it with a fixed value.</td>
+</tr>
+<tr>
+<td><strong>Persistent settings</strong></td>
+<td>All configuration is saved automatically to <code>app_state.json</code> in the app data directory.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>Android <strong>5.0 (API 21)</strong> or higher (target SDK 35).</li>
+<li>The app must be selected as the <strong>Mock Location App</strong> in Android Developer Options.</li>
+<li>For the floating overlay window: the <strong>&quot;Display over other apps&quot;</strong> permission must be granted.</li>
+</ul>
+
+<h2 id="setup">Setup</h2>
+<ol>
+<li>Enable <strong>Developer Options</strong> on your Android device.</li>
+<li>Inside Developer Options → <strong>Select mock location app</strong> → choose <strong>FakeGpsMaui</strong>.</li>
+<li>Launch the app.</li>
+<li><em>(Optional)</em> If you want the overlay map window, tap <strong>Settings → Open Overlay Permission Settings</strong> and grant the &quot;Display over other apps&quot; permission.</li>
+<li><em>(Optional)</em> If the app reports &quot;mock location not allowed&quot;, tap <strong>Settings → Open Mock App Settings</strong> to verify the mock-location permission is correctly set.</li>
+</ol>
+
+<h2 id="usage">Usage</h2>
+<h3 id="single-point-mode">Single-Point Mode</h3>
+<ol>
+<li>Ensure the <strong>route/single-point toggle button</strong> (orange, top-right of the map) shows the single-point icon.</li>
+<li>Tap anywhere on the map <strong>or</strong> open the coordinate dialog (Settings → <em>Add Coordinates</em>) to choose a target location.</li>
+<li>Press the <strong>red play button</strong> (bottom-left of the map) to start emulation.<br>A toast confirms the active coordinates.</li>
+<li>Press the button again (it becomes a pause icon) to stop emulation.</li>
+</ol>
+<h3 id="route-mode">Route Mode</h3>
+<ol>
+<li>Tap the <strong>orange toggle button</strong> to switch to route mode (icon changes to a route icon).</li>
+<li>Add waypoints by tapping the map or using <strong>Settings → Add Coordinates</strong>.<br>Each tap appends a point to the route; the route is drawn on the map.</li>
+<li>Configure <strong>speed</strong>, <strong>dwell time</strong>, and <strong>loop</strong> behaviour in Settings.</li>
+<li>Press the <strong>play button</strong> to start.<br>The service interpolates GPS positions between waypoints at the configured speed using the Haversine formula.</li>
+<li>Tap the <strong>eraser button</strong> (purple, top-right) to clear all route points.</li>
+</ol>
+
+<h2 id="settings-reference">Settings Reference</h2>
+<h3 id="application">Application</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Start on boot</strong></td>
+<td>Off</td>
+<td>Automatically restart the last emulation session after a device reboot or package update.</td>
+</tr>
+<tr>
+<td><strong>Show overlay map</strong></td>
+<td>Off</td>
+<td>Display a draggable floating map window over other apps during single-point emulation. Requires the &quot;Display over other apps&quot; permission.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gps">GPS</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Auto altitude</strong></td>
+<td>On</td>
+<td>Pass the real device altitude to the mock location when available.</td>
+</tr>
+<tr>
+<td><strong>Manual altitude (m)</strong></td>
+<td>—</td>
+<td>Override altitude with a fixed value (metres). Visible only when Auto altitude is off.</td>
+</tr>
+<tr>
+<td><strong>Update interval (ms)</strong></td>
+<td>1000</td>
+<td>How often the foreground service publishes a new mock location update.</td>
+</tr>
+<tr>
+<td><strong>GPS noise</strong></td>
+<td>On</td>
+<td>Add small random position jitter to simulate real GPS accuracy.</td>
+</tr>
+<tr>
+<td><strong>Noise radius (m)</strong></td>
+<td>3.0</td>
+<td>Maximum horizontal jitter radius in metres (0 – 100).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="route">Route</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Point dwell time (s)</strong></td>
+<td>5</td>
+<td>How long the fake GPS lingers at each waypoint before moving to the next (used in dwell-mode playback).</td>
+</tr>
+<tr>
+<td><strong>Speed (km/h)</strong></td>
+<td>5.0</td>
+<td>Movement speed used to compute interpolated GPS positions between waypoints.</td>
+</tr>
+<tr>
+<td><strong>Loop route</strong></td>
+<td>Off</td>
+<td>Restart the route from the first waypoint when the last one is reached.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="permissions">Permissions</h2>
+<table>
+<thead>
+<tr>
+<th>Permission</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ACCESS_FINE_LOCATION</code> / <code>ACCESS_COARSE_LOCATION</code></td>
+<td>Required to register as a mock provider.</td>
+</tr>
+<tr>
+<td><code>ACCESS_MOCK_LOCATION</code></td>
+<td>Grants mock-location injection rights.</td>
+</tr>
+<tr>
+<td><code>FOREGROUND_SERVICE</code> + <code>FOREGROUND_SERVICE_LOCATION</code></td>
+<td>Keeps the service alive in the background.</td>
+</tr>
+<tr>
+<td><code>SYSTEM_ALERT_WINDOW</code></td>
+<td>Allows the floating overlay window to draw over other apps.</td>
+</tr>
+<tr>
+<td><code>RECEIVE_BOOT_COMPLETED</code></td>
+<td>Enables the boot auto-start feature.</td>
+</tr>
+<tr>
+<td><code>INTERNET</code> + <code>ACCESS_NETWORK_STATE</code></td>
+<td>Used by the WebView to load map tiles.</td>
+</tr>
+</tbody>
+</table>
