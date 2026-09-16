@@ -1,117 +1,90 @@
-- tag: "v1.1.36"
-  date: "2026-05-05"
+- tag: v1.1.36
+  date: '2026-05-05'
   files:
-    - name: "Flatbed.Dialog_v1.1.36_net48.zip"
-      url: "/Flatbed-Dialog/v1.1.36/Flatbed.Dialog_v1.1.36_net48.zip"
-      size: 386054
-    - name: "Flatbed.Dialog_v1.1.36_net8.0-windows.zip"
-      url: "/Flatbed-Dialog/v1.1.36/Flatbed.Dialog_v1.1.36_net8.0-windows.zip"
-      size: 665635
-- tag: "v1.1.35"
-  date: "2026-05-03"
+  - name: Flatbed.Dialog_v1.1.36_net48.zip
+    url: /Flatbed-Dialog/v1.1.36/Flatbed.Dialog_v1.1.36_net48.zip
+    size: 386054
+  - name: Flatbed.Dialog_v1.1.36_net8.0-windows.zip
+    url: /Flatbed-Dialog/v1.1.36/Flatbed.Dialog_v1.1.36_net8.0-windows.zip
+    size: 665635
+- tag: v1.1.35
+  date: '2026-05-03'
   files:
-    - name: "Flatbed.Dialog_v1.1.35_net48.zip"
-      url: "/Flatbed-Dialog/v1.1.35/Flatbed.Dialog_v1.1.35_net48.zip"
-      size: 386237
-    - name: "Flatbed.Dialog_v1.1.35_net8.0-windows.zip"
-      url: "/Flatbed-Dialog/v1.1.35/Flatbed.Dialog_v1.1.35_net8.0-windows.zip"
-      size: 665748
-- tag: "v1.1.34"
-  date: "2026-02-12"
+  - name: Flatbed.Dialog_v1.1.35_net48.zip
+    url: /Flatbed-Dialog/v1.1.35/Flatbed.Dialog_v1.1.35_net48.zip
+    size: 386237
+  - name: Flatbed.Dialog_v1.1.35_net8.0-windows.zip
+    url: /Flatbed-Dialog/v1.1.35/Flatbed.Dialog_v1.1.35_net8.0-windows.zip
+    size: 665748
+- tag: v1.1.34
+  date: '2026-02-12'
   files:
-    - name: "Flatbed.Dialog_v1.1.34_net48.zip"
-      url: "/Flatbed-Dialog/v1.1.34/Flatbed.Dialog_v1.1.34_net48.zip"
-      size: 384276
-    - name: "Flatbed.Dialog_v1.1.34_net8.0-windows.zip"
-      url: "/Flatbed-Dialog/v1.1.34/Flatbed.Dialog_v1.1.34_net8.0-windows.zip"
-      size: 663778
-- tag: "v1.1.33"
-  date: "2025-11-04"
+  - name: Flatbed.Dialog_v1.1.34_net48.zip
+    url: /Flatbed-Dialog/v1.1.34/Flatbed.Dialog_v1.1.34_net48.zip
+    size: 384276
+  - name: Flatbed.Dialog_v1.1.34_net8.0-windows.zip
+    url: /Flatbed-Dialog/v1.1.34/Flatbed.Dialog_v1.1.34_net8.0-windows.zip
+    size: 663778
+- tag: v1.1.33
+  date: '2025-11-04'
   files:
-    - name: "Flatbed.Dialog_v1.1.33_net35.zip"
-      url: "/Flatbed-Dialog/v1.1.33/Flatbed.Dialog_v1.1.33_net35.zip"
-      size: 382174
-    - name: "Flatbed.Dialog_v1.1.33_net8.0-windows.zip"
-      url: "/Flatbed-Dialog/v1.1.33/Flatbed.Dialog_v1.1.33_net8.0-windows.zip"
-      size: 663254
-- tag: "v1.1.32"
-  date: "2025-10-27"
+  - name: Flatbed.Dialog_v1.1.33_net35.zip
+    url: /Flatbed-Dialog/v1.1.33/Flatbed.Dialog_v1.1.33_net35.zip
+    size: 382174
+  - name: Flatbed.Dialog_v1.1.33_net8.0-windows.zip
+    url: /Flatbed-Dialog/v1.1.33/Flatbed.Dialog_v1.1.33_net8.0-windows.zip
+    size: 663254
+- tag: v1.1.32
+  date: '2025-10-27'
   files:
-    - name: "Flatbed.Dialog_v1.1.32_net35.zip"
-      url: "/Flatbed-Dialog/v1.1.32/Flatbed.Dialog_v1.1.32_net35.zip"
-      size: 371890
-    - name: "Flatbed.Dialog_v1.1.32_net8.0-windows.zip"
-      url: "/Flatbed-Dialog/v1.1.32/Flatbed.Dialog_v1.1.32_net8.0-windows.zip"
-      size: 652998
-- tag: "v1.1.31"
-  date: "2025-10-23"
+  - name: Flatbed.Dialog_v1.1.32_net35.zip
+    url: /Flatbed-Dialog/v1.1.32/Flatbed.Dialog_v1.1.32_net35.zip
+    size: 371890
+  - name: Flatbed.Dialog_v1.1.32_net8.0-windows.zip
+    url: /Flatbed-Dialog/v1.1.32/Flatbed.Dialog_v1.1.32_net8.0-windows.zip
+    size: 652998
+- tag: v1.1.31
+  date: '2025-10-23'
   files:
-    - name: "Flatbed.Dialog_v1.1.31_net35.zip"
-      url: "/Flatbed-Dialog/v1.1.31/Flatbed.Dialog_v1.1.31_net35.zip"
-      size: 359586
-    - name: "Flatbed.Dialog_v1.1.31_net8.0-windows.zip"
-      url: "/Flatbed-Dialog/v1.1.31/Flatbed.Dialog_v1.1.31_net8.0-windows.zip"
-      size: 641106
-- tag: "v1.1.30"
-  date: "2025-10-19"
+  - name: Flatbed.Dialog_v1.1.31_net35.zip
+    url: /Flatbed-Dialog/v1.1.31/Flatbed.Dialog_v1.1.31_net35.zip
+    size: 359586
+  - name: Flatbed.Dialog_v1.1.31_net8.0-windows.zip
+    url: /Flatbed-Dialog/v1.1.31/Flatbed.Dialog_v1.1.31_net8.0-windows.zip
+    size: 641106
+- tag: v1.1.30
+  date: '2025-10-19'
   files:
-    - name: "Flatbed.Dialog_v1.1.30_net35.zip"
-      url: "/Flatbed-Dialog/v1.1.30/Flatbed.Dialog_v1.1.30_net35.zip"
-      size: 359505
-    - name: "Flatbed.Dialog_v1.1.30_net8.0-windows.zip"
-      url: "/Flatbed-Dialog/v1.1.30/Flatbed.Dialog_v1.1.30_net8.0-windows.zip"
-      size: 641022
-- tag: "v1.1.29"
-  date: "2025-10-16"
+  - name: Flatbed.Dialog_v1.1.30_net35.zip
+    url: /Flatbed-Dialog/v1.1.30/Flatbed.Dialog_v1.1.30_net35.zip
+    size: 359505
+  - name: Flatbed.Dialog_v1.1.30_net8.0-windows.zip
+    url: /Flatbed-Dialog/v1.1.30/Flatbed.Dialog_v1.1.30_net8.0-windows.zip
+    size: 641022
+- tag: v1.1.29
+  date: '2025-10-16'
   files:
-    - name: "Flatbed.Dialog_v1.1.29_net35.zip"
-      url: "/Flatbed-Dialog/v1.1.29/Flatbed.Dialog_v1.1.29_net35.zip"
-      size: 373878
-    - name: "Flatbed.Dialog_v1.1.29_net8.0-windows.zip"
-      url: "/Flatbed-Dialog/v1.1.29/Flatbed.Dialog_v1.1.29_net8.0-windows.zip"
-      size: 654589
-- tag: "v1.1.28"
-  date: "2025-10-15"
+  - name: Flatbed.Dialog_v1.1.29_net35.zip
+    url: /Flatbed-Dialog/v1.1.29/Flatbed.Dialog_v1.1.29_net35.zip
+    size: 373878
+  - name: Flatbed.Dialog_v1.1.29_net8.0-windows.zip
+    url: /Flatbed-Dialog/v1.1.29/Flatbed.Dialog_v1.1.29_net8.0-windows.zip
+    size: 654589
+- tag: v1.1.28
+  date: '2025-10-15'
   files:
-    - name: "Flatbed.Dialog_v1.1.28_net35.zip"
-      url: "/Flatbed-Dialog/v1.1.28/Flatbed.Dialog_v1.1.28_net35.zip"
-      size: 175840
-    - name: "Flatbed.Dialog_v1.1.28_net8.0-windows.zip"
-      url: "/Flatbed-Dialog/v1.1.28/Flatbed.Dialog_v1.1.28_net8.0-windows.zip"
-      size: 259363
-- tag: "v1.1.26"
-  date: "2025-10-13"
+  - name: Flatbed.Dialog_v1.1.28_net35.zip
+    url: /Flatbed-Dialog/v1.1.28/Flatbed.Dialog_v1.1.28_net35.zip
+    size: 175840
+  - name: Flatbed.Dialog_v1.1.28_net8.0-windows.zip
+    url: /Flatbed-Dialog/v1.1.28/Flatbed.Dialog_v1.1.28_net8.0-windows.zip
+    size: 259363
+- tag: v1.1.26
+  date: '2025-10-13'
   files:
-    - name: "Flatbed.Dialog_v1.1.26_net8.0-windows.zip"
-      url: "/Flatbed-Dialog/v1.1.26/Flatbed.Dialog_v1.1.26_net8.0-windows.zip"
-      size: 255871
-    - name: "Flatbed.Dialog_v1.1.26_v3.5.zip"
-      url: "/Flatbed-Dialog/v1.1.26/Flatbed.Dialog_v1.1.26_v3.5.zip"
-      size: 222604
-- tag: "v1.1.27"
-  date: "2025-10-07"
-  files:
-    - name: "Flatbed.Dialog_v1.1.27_net35.zip"
-      url: "/Flatbed-Dialog/v1.1.27/Flatbed.Dialog_v1.1.27_net35.zip"
-      size: 173658
-    - name: "Flatbed.Dialog_v1.1.27_net8.0-windows.zip"
-      url: "/Flatbed-Dialog/v1.1.27/Flatbed.Dialog_v1.1.27_net8.0-windows.zip"
-      size: 255871
-- tag: "v1.1.26"
-  date: "2025-10-04"
-  files:
-    - name: "Flatbed.Dialog_v1.1.26_net8.0-windows.zip"
-      url: "/Flatbed-Dialog/v1.1.26/Flatbed.Dialog_v1.1.26_net8.0-windows.zip"
-      size: 255871
-    - name: "Flatbed.Dialog_v1.1.26_v3.5.zip"
-      url: "/Flatbed-Dialog/v1.1.26/Flatbed.Dialog_v1.1.26_v3.5.zip"
-      size: 222604
-- tag: "v1.1.25"
-  date: "2025-08-23"
-  files:
-    - name: "Flatbed.Dialog_v1.1.25_net8.0-windows.zip"
-      url: "/Flatbed-Dialog/v1.1.25/Flatbed.Dialog_v1.1.25_net8.0-windows.zip"
-      size: 255590
-    - name: "Flatbed.Dialog_v1.1.25_v3.5.zip"
-      url: "/Flatbed-Dialog/v1.1.25/Flatbed.Dialog_v1.1.25_v3.5.zip"
-      size: 221886
+  - name: Flatbed.Dialog_v1.1.26_net8.0-windows.zip
+    url: /Flatbed-Dialog/v1.1.26/Flatbed.Dialog_v1.1.26_net8.0-windows.zip
+    size: 255871
+  - name: Flatbed.Dialog_v1.1.26_v3.5.zip
+    url: /Flatbed-Dialog/v1.1.26/Flatbed.Dialog_v1.1.26_v3.5.zip
+    size: 222604

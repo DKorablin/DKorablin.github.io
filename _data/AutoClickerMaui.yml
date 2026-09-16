@@ -1,72 +1,60 @@
-- tag: "v1.1.6"
-  date: "2026-09-12"
+- tag: v1.1.6
+  date: '2026-09-12'
   files:
-    - name: "AutoClickerMaui-main-.apk"
-      url: "/AutoClickerMaui/v1.1.6/AutoClickerMaui-main-.apk"
-      size: 53249063
-- tag: "v1.1.5"
-  date: "2026-09-04"
+  - name: AutoClickerMaui-main-.apk
+    url: /AutoClickerMaui/v1.1.6/AutoClickerMaui-main-.apk
+    size: 53249063
+- tag: v1.1.5
+  date: '2026-09-04'
   files:
-    - name: "com.alphaomega.autoclickermaui-Signed.apk"
-      url: "/AutoClickerMaui/v1.1.5/com.alphaomega.autoclickermaui-Signed.apk"
-      size: 53228583
-- tag: "v1.1.4"
-  date: "2026-09-04"
+  - name: com.alphaomega.autoclickermaui-Signed.apk
+    url: /AutoClickerMaui/v1.1.5/com.alphaomega.autoclickermaui-Signed.apk
+    size: 53228583
+- tag: v1.1.4
+  date: '2026-09-04'
   files:
-    - name: "com.alphaomega.autoclickermaui-Signed.apk"
-      url: "/AutoClickerMaui/v1.1.4/com.alphaomega.autoclickermaui-Signed.apk"
-      size: 53224487
-- tag: "v1.1.3"
-  date: "2026-08-30"
+  - name: com.alphaomega.autoclickermaui-Signed.apk
+    url: /AutoClickerMaui/v1.1.4/com.alphaomega.autoclickermaui-Signed.apk
+    size: 53224487
+- tag: v1.1.3
+  date: '2026-08-30'
   files:
-    - name: "com.alphaomega.autoclickermaui-Signed.apk"
-      url: "/AutoClickerMaui/v1.1.3/com.alphaomega.autoclickermaui-Signed.apk"
-      size: 53220391
-- tag: "v1.1.2"
-  date: "2026-08-30"
+  - name: com.alphaomega.autoclickermaui-Signed.apk
+    url: /AutoClickerMaui/v1.1.3/com.alphaomega.autoclickermaui-Signed.apk
+    size: 53220391
+- tag: v1.1.2
+  date: '2026-08-30'
   files:
-    - name: "com.alphaomega.autoclickermaui-Signed.apk"
-      url: "/AutoClickerMaui/v1.1.2/com.alphaomega.autoclickermaui-Signed.apk"
-      size: 53166958
-- tag: "v1.1.1"
-  date: "2026-08-30"
+  - name: com.alphaomega.autoclickermaui-Signed.apk
+    url: /AutoClickerMaui/v1.1.2/com.alphaomega.autoclickermaui-Signed.apk
+    size: 53166958
+- tag: v1.1.1
+  date: '2026-08-30'
   files:
-    - name: "com.alphaomega.autoclickermaui-Signed.apk"
-      url: "/AutoClickerMaui/v1.1.1/com.alphaomega.autoclickermaui-Signed.apk"
-      size: 53166958
-- tag: "v1.1.0"
-  date: "2026-08-29"
+  - name: com.alphaomega.autoclickermaui-Signed.apk
+    url: /AutoClickerMaui/v1.1.1/com.alphaomega.autoclickermaui-Signed.apk
+    size: 53166958
+- tag: v1.1.0
+  date: '2026-08-29'
   files:
-    - name: "com.alphaomega.autoclickermaui-Signed.apk"
-      url: "/AutoClickerMaui/v1.1.0/com.alphaomega.autoclickermaui-Signed.apk"
-      size: 53162862
-- tag: "v1.0.20"
-  date: "2026-08-25"
+  - name: com.alphaomega.autoclickermaui-Signed.apk
+    url: /AutoClickerMaui/v1.1.0/com.alphaomega.autoclickermaui-Signed.apk
+    size: 53162862
+- tag: v1.0.20
+  date: '2026-08-25'
   files:
-    - name: "com.alphaomega.autoclickermaui-Signed.apk"
-      url: "/AutoClickerMaui/v1.0.20/com.alphaomega.autoclickermaui-Signed.apk"
-      size: 53031359
-- tag: "v1.0.19"
-  date: "2026-08-23"
+  - name: com.alphaomega.autoclickermaui-Signed.apk
+    url: /AutoClickerMaui/v1.0.20/com.alphaomega.autoclickermaui-Signed.apk
+    size: 53031359
+- tag: v1.0.19
+  date: '2026-08-23'
   files:
-    - name: "com.alphaomega.autoclickermaui-Signed.apk"
-      url: "/AutoClickerMaui/v1.0.19/com.alphaomega.autoclickermaui-Signed.apk"
-      size: 53006783
-- tag: "v1.0.18"
-  date: "2026-08-23"
+  - name: com.alphaomega.autoclickermaui-Signed.apk
+    url: /AutoClickerMaui/v1.0.19/com.alphaomega.autoclickermaui-Signed.apk
+    size: 53006783
+- tag: v1.0.18
+  date: '2026-08-23'
   files:
-    - name: "com.alphaomega.autoclickermaui-Signed.apk"
-      url: "/AutoClickerMaui/v1.0.18/com.alphaomega.autoclickermaui-Signed.apk"
-      size: 53002687
-- tag: "v1.0.17"
-  date: "2026-08-23"
-  files:
-    - name: "com.alphaomega.autoclickermaui-Signed.apk"
-      url: "/AutoClickerMaui/v1.0.17/com.alphaomega.autoclickermaui-Signed.apk"
-      size: 52998591
-- tag: "v1.0.16"
-  date: "2026-08-19"
-  files:
-    - name: "com.alphaomega.autoclickermaui-Signed.apk"
-      url: "/AutoClickerMaui/v1.0.16/com.alphaomega.autoclickermaui-Signed.apk"
-      size: 52961520
+  - name: com.alphaomega.autoclickermaui-Signed.apk
+    url: /AutoClickerMaui/v1.0.18/com.alphaomega.autoclickermaui-Signed.apk
+    size: 53002687

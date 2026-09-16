@@ -1,117 +1,90 @@
-- tag: "v1.2.42"
-  date: "2026-05-15"
+- tag: v1.2.42
+  date: '2026-05-15'
   files:
-    - name: "Flatbed.MDI_v1.2.42_net48.zip"
-      url: "/Flatbed-MDI/v1.2.42/Flatbed.MDI_v1.2.42_net48.zip"
-      size: 718934
-    - name: "Flatbed.MDI_v1.2.42_net8.0-windows.zip"
-      url: "/Flatbed-MDI/v1.2.42/Flatbed.MDI_v1.2.42_net8.0-windows.zip"
-      size: 997431
-- tag: "v1.2.41"
-  date: "2026-05-05"
+  - name: Flatbed.MDI_v1.2.42_net48.zip
+    url: /Flatbed-MDI/v1.2.42/Flatbed.MDI_v1.2.42_net48.zip
+    size: 718934
+  - name: Flatbed.MDI_v1.2.42_net8.0-windows.zip
+    url: /Flatbed-MDI/v1.2.42/Flatbed.MDI_v1.2.42_net8.0-windows.zip
+    size: 997431
+- tag: v1.2.41
+  date: '2026-05-05'
   files:
-    - name: "Flatbed.MDI_v1.2.41_net48.zip"
-      url: "/Flatbed-MDI/v1.2.41/Flatbed.MDI_v1.2.41_net48.zip"
-      size: 718612
-    - name: "Flatbed.MDI_v1.2.41_net8.0-windows.zip"
-      url: "/Flatbed-MDI/v1.2.41/Flatbed.MDI_v1.2.41_net8.0-windows.zip"
-      size: 997020
-- tag: "v1.2.40"
-  date: "2026-05-05"
+  - name: Flatbed.MDI_v1.2.41_net48.zip
+    url: /Flatbed-MDI/v1.2.41/Flatbed.MDI_v1.2.41_net48.zip
+    size: 718612
+  - name: Flatbed.MDI_v1.2.41_net8.0-windows.zip
+    url: /Flatbed-MDI/v1.2.41/Flatbed.MDI_v1.2.41_net8.0-windows.zip
+    size: 997020
+- tag: v1.2.40
+  date: '2026-05-05'
   files:
-    - name: "Flatbed.MDI_v1.2.40_net48.zip"
-      url: "/Flatbed-MDI/v1.2.40/Flatbed.MDI_v1.2.40_net48.zip"
-      size: 718550
-    - name: "Flatbed.MDI_v1.2.40_net8.0-windows.zip"
-      url: "/Flatbed-MDI/v1.2.40/Flatbed.MDI_v1.2.40_net8.0-windows.zip"
-      size: 996949
-- tag: "v1.2.39"
-  date: "2026-05-03"
+  - name: Flatbed.MDI_v1.2.40_net48.zip
+    url: /Flatbed-MDI/v1.2.40/Flatbed.MDI_v1.2.40_net48.zip
+    size: 718550
+  - name: Flatbed.MDI_v1.2.40_net8.0-windows.zip
+    url: /Flatbed-MDI/v1.2.40/Flatbed.MDI_v1.2.40_net8.0-windows.zip
+    size: 996949
+- tag: v1.2.39
+  date: '2026-05-03'
   files:
-    - name: "Flatbed.MDI_v1.2.39_net48.zip"
-      url: "/Flatbed-MDI/v1.2.39/Flatbed.MDI_v1.2.39_net48.zip"
-      size: 718793
-    - name: "Flatbed.MDI_v1.2.39_net8.0-windows.zip"
-      url: "/Flatbed-MDI/v1.2.39/Flatbed.MDI_v1.2.39_net8.0-windows.zip"
-      size: 997192
-- tag: "v1.2.38"
-  date: "2026-05-03"
+  - name: Flatbed.MDI_v1.2.39_net48.zip
+    url: /Flatbed-MDI/v1.2.39/Flatbed.MDI_v1.2.39_net48.zip
+    size: 718793
+  - name: Flatbed.MDI_v1.2.39_net8.0-windows.zip
+    url: /Flatbed-MDI/v1.2.39/Flatbed.MDI_v1.2.39_net8.0-windows.zip
+    size: 997192
+- tag: v1.2.38
+  date: '2026-05-03'
   files:
-    - name: "Flatbed.MDI_v1.2.38_net48.zip"
-      url: "/Flatbed-MDI/v1.2.38/Flatbed.MDI_v1.2.38_net48.zip"
-      size: 718921
-    - name: "Flatbed.MDI_v1.2.38_net8.0-windows.zip"
-      url: "/Flatbed-MDI/v1.2.38/Flatbed.MDI_v1.2.38_net8.0-windows.zip"
-      size: 997315
-- tag: "v1.2.37"
-  date: "2026-02-13"
+  - name: Flatbed.MDI_v1.2.38_net48.zip
+    url: /Flatbed-MDI/v1.2.38/Flatbed.MDI_v1.2.38_net48.zip
+    size: 718921
+  - name: Flatbed.MDI_v1.2.38_net8.0-windows.zip
+    url: /Flatbed-MDI/v1.2.38/Flatbed.MDI_v1.2.38_net8.0-windows.zip
+    size: 997315
+- tag: v1.2.37
+  date: '2026-02-13'
   files:
-    - name: "Flatbed.MDI_v1.2.37_net48.zip"
-      url: "/Flatbed-MDI/v1.2.37/Flatbed.MDI_v1.2.37_net48.zip"
-      size: 716866
-    - name: "Flatbed.MDI_v1.2.37_net8.0-windows.zip"
-      url: "/Flatbed-MDI/v1.2.37/Flatbed.MDI_v1.2.37_net8.0-windows.zip"
-      size: 995296
-- tag: "v1.2.36"
-  date: "2025-11-04"
+  - name: Flatbed.MDI_v1.2.37_net48.zip
+    url: /Flatbed-MDI/v1.2.37/Flatbed.MDI_v1.2.37_net48.zip
+    size: 716866
+  - name: Flatbed.MDI_v1.2.37_net8.0-windows.zip
+    url: /Flatbed-MDI/v1.2.37/Flatbed.MDI_v1.2.37_net8.0-windows.zip
+    size: 995296
+- tag: v1.2.36
+  date: '2025-11-04'
   files:
-    - name: "Flatbed.MDI_v1.2.36_net35.zip"
-      url: "/Flatbed-MDI/v1.2.36/Flatbed.MDI_v1.2.36_net35.zip"
-      size: 714657
-    - name: "Flatbed.MDI_v1.2.36_net8.0-windows.zip"
-      url: "/Flatbed-MDI/v1.2.36/Flatbed.MDI_v1.2.36_net8.0-windows.zip"
-      size: 994595
-- tag: "v1.2.35"
-  date: "2025-10-27"
+  - name: Flatbed.MDI_v1.2.36_net35.zip
+    url: /Flatbed-MDI/v1.2.36/Flatbed.MDI_v1.2.36_net35.zip
+    size: 714657
+  - name: Flatbed.MDI_v1.2.36_net8.0-windows.zip
+    url: /Flatbed-MDI/v1.2.36/Flatbed.MDI_v1.2.36_net8.0-windows.zip
+    size: 994595
+- tag: v1.2.35
+  date: '2025-10-27'
   files:
-    - name: "Flatbed.MDI_v1.2.35_net35.zip"
-      url: "/Flatbed-MDI/v1.2.35/Flatbed.MDI_v1.2.35_net35.zip"
-      size: 704404
-    - name: "Flatbed.MDI_v1.2.35_net8.0-windows.zip"
-      url: "/Flatbed-MDI/v1.2.35/Flatbed.MDI_v1.2.35_net8.0-windows.zip"
-      size: 984543
-- tag: "v1.2.34"
-  date: "2025-10-19"
+  - name: Flatbed.MDI_v1.2.35_net35.zip
+    url: /Flatbed-MDI/v1.2.35/Flatbed.MDI_v1.2.35_net35.zip
+    size: 704404
+  - name: Flatbed.MDI_v1.2.35_net8.0-windows.zip
+    url: /Flatbed-MDI/v1.2.35/Flatbed.MDI_v1.2.35_net8.0-windows.zip
+    size: 984543
+- tag: v1.2.34
+  date: '2025-10-19'
   files:
-    - name: "Flatbed.MDI_v1.2.34_net35.zip"
-      url: "/Flatbed-MDI/v1.2.34/Flatbed.MDI_v1.2.34_net35.zip"
-      size: 691917
-    - name: "Flatbed.MDI_v1.2.34_net8.0-windows.zip"
-      url: "/Flatbed-MDI/v1.2.34/Flatbed.MDI_v1.2.34_net8.0-windows.zip"
-      size: 972454
-- tag: "v1.2.33"
-  date: "2025-10-16"
+  - name: Flatbed.MDI_v1.2.34_net35.zip
+    url: /Flatbed-MDI/v1.2.34/Flatbed.MDI_v1.2.34_net35.zip
+    size: 691917
+  - name: Flatbed.MDI_v1.2.34_net8.0-windows.zip
+    url: /Flatbed-MDI/v1.2.34/Flatbed.MDI_v1.2.34_net8.0-windows.zip
+    size: 972454
+- tag: v1.2.33
+  date: '2025-10-16'
   files:
-    - name: "Flatbed.MDI_v1.2.33_net35.zip"
-      url: "/Flatbed-MDI/v1.2.33/Flatbed.MDI_v1.2.33_net35.zip"
-      size: 702371
-    - name: "Flatbed.MDI_v1.2.33_net8.0-windows.zip"
-      url: "/Flatbed-MDI/v1.2.33/Flatbed.MDI_v1.2.33_net8.0-windows.zip"
-      size: 982344
-- tag: "v1.2.32"
-  date: "2025-10-15"
-  files:
-    - name: "Flatbed.MDI_v1.2.32_net35.zip"
-      url: "/Flatbed-MDI/v1.2.32/Flatbed.MDI_v1.2.32_net35.zip"
-      size: 305842
-    - name: "Flatbed.MDI_v1.2.32_net8.0-windows.zip"
-      url: "/Flatbed-MDI/v1.2.32/Flatbed.MDI_v1.2.32_net8.0-windows.zip"
-      size: 387789
-- tag: "v1.2.32"
-  date: "2025-10-07"
-  files:
-    - name: "Flatbed.MDI_v1.2.32_net35.zip"
-      url: "/Flatbed-MDI/v1.2.32/Flatbed.MDI_v1.2.32_net35.zip"
-      size: 303870
-    - name: "Flatbed.MDI_v1.2.32_net8.0-windows.zip"
-      url: "/Flatbed-MDI/v1.2.32/Flatbed.MDI_v1.2.32_net8.0-windows.zip"
-      size: 385206
-- tag: "v1.2.31"
-  date: "2025-08-23"
-  files:
-    - name: "Flatbed.MDI_v1.2.31_net8.0-windows.zip"
-      url: "/Flatbed-MDI/v1.2.31/Flatbed.MDI_v1.2.31_net8.0-windows.zip"
-      size: 384911
-    - name: "Flatbed.MDI_v1.2.31_v3.5.zip"
-      url: "/Flatbed-MDI/v1.2.31/Flatbed.MDI_v1.2.31_v3.5.zip"
-      size: 349219
+  - name: Flatbed.MDI_v1.2.33_net35.zip
+    url: /Flatbed-MDI/v1.2.33/Flatbed.MDI_v1.2.33_net35.zip
+    size: 702371
+  - name: Flatbed.MDI_v1.2.33_net8.0-windows.zip
+    url: /Flatbed-MDI/v1.2.33/Flatbed.MDI_v1.2.33_net8.0-windows.zip
+    size: 982344
