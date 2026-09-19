@@ -1,63 +1,45 @@
-- tag: "v1.2.20"
-  date: "2026-05-06"
+- tag: v1.2.20
+  date: '2026-05-06'
   files:
-    - name: "Flatbed.WorkerService_v1.2.20_net48.zip"
-      url: "/Flatbed-WorkerService/v1.2.20/Flatbed.WorkerService_v1.2.20_net48.zip"
-      size: 279213
-    - name: "Flatbed.WorkerService_v1.2.20_net8.0-windows.zip"
-      url: "/Flatbed-WorkerService/v1.2.20/Flatbed.WorkerService_v1.2.20_net8.0-windows.zip"
-      size: 2346244
-- tag: "v1.2.19"
-  date: "2026-05-04"
+  - name: Flatbed.WorkerService_v1.2.20_net48.zip
+    url: /Flatbed-WorkerService/v1.2.20/Flatbed.WorkerService_v1.2.20_net48.zip
+    size: 279213
+  - name: Flatbed.WorkerService_v1.2.20_net8.0-windows.zip
+    url: /Flatbed-WorkerService/v1.2.20/Flatbed.WorkerService_v1.2.20_net8.0-windows.zip
+    size: 2346244
+- tag: v1.2.19
+  date: '2026-05-04'
   files:
-    - name: "Flatbed.WorkerService_v1.2.19_net48.zip"
-      url: "/Flatbed-WorkerService/v1.2.19/Flatbed.WorkerService_v1.2.19_net48.zip"
-      size: 278953
-    - name: "Flatbed.WorkerService_v1.2.19_net8.0-windows.zip"
-      url: "/Flatbed-WorkerService/v1.2.19/Flatbed.WorkerService_v1.2.19_net8.0-windows.zip"
-      size: 2345873
-- tag: "v1.2.18"
-  date: "2025-10-27"
+  - name: Flatbed.WorkerService_v1.2.19_net48.zip
+    url: /Flatbed-WorkerService/v1.2.19/Flatbed.WorkerService_v1.2.19_net48.zip
+    size: 278953
+  - name: Flatbed.WorkerService_v1.2.19_net8.0-windows.zip
+    url: /Flatbed-WorkerService/v1.2.19/Flatbed.WorkerService_v1.2.19_net8.0-windows.zip
+    size: 2345873
+- tag: v1.2.18
+  date: '2025-10-27'
   files:
-    - name: "Flatbed.WorkerService_v1.2.18_net35.zip"
-      url: "/Flatbed-WorkerService/v1.2.18/Flatbed.WorkerService_v1.2.18_net35.zip"
-      size: 277008
-    - name: "Flatbed.WorkerService_v1.2.18_net8.0-windows.zip"
-      url: "/Flatbed-WorkerService/v1.2.18/Flatbed.WorkerService_v1.2.18_net8.0-windows.zip"
-      size: 2344402
-- tag: "v1.2.17"
-  date: "2025-10-16"
+  - name: Flatbed.WorkerService_v1.2.18_net35.zip
+    url: /Flatbed-WorkerService/v1.2.18/Flatbed.WorkerService_v1.2.18_net35.zip
+    size: 277008
+  - name: Flatbed.WorkerService_v1.2.18_net8.0-windows.zip
+    url: /Flatbed-WorkerService/v1.2.18/Flatbed.WorkerService_v1.2.18_net8.0-windows.zip
+    size: 2344402
+- tag: v1.2.17
+  date: '2025-10-16'
   files:
-    - name: "Flatbed.WorkerService_v1.2.17_net35.zip"
-      url: "/Flatbed-WorkerService/v1.2.17/Flatbed.WorkerService_v1.2.17_net35.zip"
-      size: 270615
-    - name: "Flatbed.WorkerService_v1.2.17_net8.0-windows.zip"
-      url: "/Flatbed-WorkerService/v1.2.17/Flatbed.WorkerService_v1.2.17_net8.0-windows.zip"
-      size: 2338210
-- tag: "v1.2.16"
-  date: "2025-10-15"
+  - name: Flatbed.WorkerService_v1.2.17_net35.zip
+    url: /Flatbed-WorkerService/v1.2.17/Flatbed.WorkerService_v1.2.17_net35.zip
+    size: 270615
+  - name: Flatbed.WorkerService_v1.2.17_net8.0-windows.zip
+    url: /Flatbed-WorkerService/v1.2.17/Flatbed.WorkerService_v1.2.17_net8.0-windows.zip
+    size: 2338210
+- tag: v1.2.16
+  date: '2025-10-15'
   files:
-    - name: "Flatbed.WorkerService_v1.2.16_net35.zip"
-      url: "/Flatbed-WorkerService/v1.2.16/Flatbed.WorkerService_v1.2.16_net35.zip"
-      size: 72060
-    - name: "Flatbed.WorkerService_v1.2.16_net8.0-windows.zip"
-      url: "/Flatbed-WorkerService/v1.2.16/Flatbed.WorkerService_v1.2.16_net8.0-windows.zip"
-      size: 1941649
-- tag: "v1.2.15"
-  date: "2025-10-07"
-  files:
-    - name: "Flatbed.WorkerService_v1.2.15_net35.zip"
-      url: "/Flatbed-WorkerService/v1.2.15/Flatbed.WorkerService_v1.2.15_net35.zip"
-      size: 71858
-    - name: "Flatbed.WorkerService_v1.2.15_net8.0-windows.zip"
-      url: "/Flatbed-WorkerService/v1.2.15/Flatbed.WorkerService_v1.2.15_net8.0-windows.zip"
-      size: 1927170
-- tag: "v1.2.14"
-  date: "2025-08-23"
-  files:
-    - name: "Flatbed.WorkerService_v1.2.14_net8.0-windows.zip"
-      url: "/Flatbed-WorkerService/v1.2.14/Flatbed.WorkerService_v1.2.14_net8.0-windows.zip"
-      size: 1926979
-    - name: "Flatbed.WorkerService_v1.2.14_v3.5.zip"
-      url: "/Flatbed-WorkerService/v1.2.14/Flatbed.WorkerService_v1.2.14_v3.5.zip"
-      size: 86050
+  - name: Flatbed.WorkerService_v1.2.16_net35.zip
+    url: /Flatbed-WorkerService/v1.2.16/Flatbed.WorkerService_v1.2.16_net35.zip
+    size: 72060
+  - name: Flatbed.WorkerService_v1.2.16_net8.0-windows.zip
+    url: /Flatbed-WorkerService/v1.2.16/Flatbed.WorkerService_v1.2.16_net8.0-windows.zip
+    size: 1941649
