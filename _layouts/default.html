@@ -16,11 +16,13 @@
 
 			<footer>
 				<div>
+					{%- assign host = 'github' -%}
+					{%- if jekyll.environment == 'gitlab' %}{% assign host = 'gitlab' %}{% endif -%}
 					{%- for profile in site.profiles -%}
-					<a href="{{ profile.url }}">{{ profile.name }}</a>{% unless forloop.last %} &middot; {% endunless %}
+					<div><a href="{{ profile.url }}">{{ profile.name }}</a></div>
+					<div>{% if profile.id == host %}Built on {{ site.time | date: "%d.%m.%Y %H:%M:%S" }}{% else %}.{% endif %}</div>
 					{%- endfor -%}
 				</div>
-				<div>Built on {{ site.time | date: "%d.%m.%Y %H:%M:%S" }}</div>
 			</footer>
 		</aside>
 

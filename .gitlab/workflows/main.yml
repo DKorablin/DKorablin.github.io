@@ -11,7 +11,7 @@ pages:
   stage: deploy
   image: ruby:3.3
   variables:
-    JEKYLL_ENV: production
+    JEKYLL_ENV: gitlab
     GIT_DEPTH: "1"
   script:
     - bundle install
