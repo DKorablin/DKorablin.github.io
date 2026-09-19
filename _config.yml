@@ -18,6 +18,7 @@ defaults:
 
 exclude:
 - scripts/
+- AGENTS.md
 
 sass:
   style: compressed

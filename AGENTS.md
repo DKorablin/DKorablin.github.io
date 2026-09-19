@@ -15,7 +15,7 @@ There is no application code and no test suite. The "code" is Liquid templates, 
 
 | Path | Purpose |
 |---|---|
-| `_config.yml` | Site title, `profiles` (GitHub/GitLab links with an `id`), default layout, `exclude: scripts/`, compressed Sass |
+| `_config.yml` | Site title, `profiles` (GitHub/GitLab links with an `id`), default layout, `exclude:` (`scripts/`, `AGENTS.md`), compressed Sass |
 | `_layouts/default.html` | Page shell: sidebar (`toc.html` + footer with profile links / build time) and `<main>` |
 | `_layouts/latest-json.html` | `layout: null` template that renders the newest release of a project as JSON |
 | `_includes/toc.html` | Sidebar list; built automatically from every file in `_data/` (sorted by name) |
@@ -90,5 +90,6 @@ JEKYLL_ENV=gitlab bundle exec jekyll serve   # preview the GitLab footer variant
 - Indentation in templates/CSS/JS/HTML is **tabs**; YAML uses 2 spaces.
 - Keep the site dependency-free: plain Liquid, vanilla JS, single SCSS file. (Primer CSS is loaded from a CDN in `default.html`.)
 - Jekyll only processes files with front matter - `latest.json` and `css/a.scss` start with `---` for that reason.
+- GitHub Pages also enables `jekyll-optional-front-matter`, so **any `.md` file without front matter is rendered by Jekyll, including Liquid**. Docs that contain `{% ... %}`/`{{ ... }}` (like this file) must be listed under `exclude:` in `_config.yml`, otherwise the Pages build fails with a Liquid syntax error. Add new non-site markdown files there too.
 - Large binaries live in git; avoid adding files that aren't release artifacts or project-page images (`*-200.png` are thumbnails of the full-size image).
 - Commit messages in history are short and prefixed by area (e.g. `CI/CD: ...`, `Add release vX for Project`).
