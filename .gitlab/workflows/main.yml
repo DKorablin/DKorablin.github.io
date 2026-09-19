@@ -1,5 +1,11 @@
 stages: [deploy]
 
+# Global so the description shows up when running a pipeline manually (job-level variables don't support it).
+variables:
+  KEEP_COUNT:
+    value: "5"
+    description: "Number of old releases to keep (used by prune-releases)"
+
 # Builds the Jekyll site and publishes it to GitLab Pages (GitHub builds it on its own).
 pages:
   stage: deploy
@@ -23,10 +29,6 @@ pages:
 prune-releases:
   stage: deploy
   image: python:3
-  variables:
-    KEEP_COUNT:
-      value: "5"
-      description: "Number of old releases to keep"
   rules:
     - if: $ENABLE_PRUNE == "true" && ($CI_PIPELINE_SOURCE == "schedule" || $CI_PIPELINE_SOURCE == "web")
   script:
