@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "0 3 1 */3 *"
   workflow_dispatch:
+    inputs:
+      keepCount:
+        description: 'Number of old releases to keep'
+        required: false
+        default: '5'
 
 permissions:
   contents: write
@@ -27,6 +32,9 @@ jobs:
         run: pip install pyyaml
 
       - name: Prune old releases
+        env:
+          # Scheduled runs have no inputs, so the default lives here as the fallback
+          KEEP_COUNT: ${{ github.event.inputs.keepCount || '5' }}
         run: python scripts/prune_releases.py
 
       - name: Commit and push

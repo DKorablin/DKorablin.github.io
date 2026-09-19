@@ -1,12 +1,26 @@
 #!/usr/bin/env python3
 """Prune old release entries/folders from _data/*.yml, keeping only the newest N per project."""
+import os
 import shutil
 import sys
 from pathlib import Path
 
 import yaml
 
-KEEP_COUNT = 10
+def read_keep_count() -> int:
+    raw = os.environ.get("KEEP_COUNT", "").strip()
+    if not raw:
+        sys.exit("KEEP_COUNT environment variable is required (number of releases to keep per project)")
+    try:
+        value = int(raw)
+    except ValueError:
+        sys.exit(f"KEEP_COUNT must be a whole number, got {raw!r}")
+    if value < 1:
+        sys.exit(f"KEEP_COUNT must be >= 1, got {value}")
+    return value
+
+
+KEEP_COUNT = read_keep_count()
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = REPO_ROOT / "_data"
 
