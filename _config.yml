@@ -1,6 +1,12 @@
 title: DKorablin repositories
 description: The list of releases from some of private repositories
 
+profiles:
+  - name: GitHub
+    url: https://github.com/DKorablin
+  - name: GitLab
+    url: https://gitlab.com/DKorablin
+
 defaults:
   -
     scope:

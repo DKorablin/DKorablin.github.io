@@ -15,7 +15,11 @@
 			{% include toc.html %}
 
 			<footer>
-				<a href="https://github.com/DKorablin">My GitHub</a>
+				<div>
+					{%- for profile in site.profiles -%}
+					<a href="{{ profile.url }}">{{ profile.name }}</a>{% unless forloop.last %} &middot; {% endunless %}
+					{%- endfor -%}
+				</div>
 				<div>Built on {{ site.time | date: "%d.%m.%Y %H:%M:%S" }}</div>
 			</footer>
 		</aside>
