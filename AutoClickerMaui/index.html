@@ -1,55 +1,36 @@
 ---
-layout: default
-title: AutoClickerMaui
+layout: project
+title: AutoClicker
+project: AutoClickerMaui
+group: apps
+icon: AC
+tagline: Record and replay taps on Android, with an optional AI agent
+platforms:
+  - Android 5.0+
+  - .NET MAUI
 ---
-
-<h1>AutoClicker [MAUI]</h1>
-
-{% include files_list.html releases=site.data.AutoClickerMaui %}
-
-<video controls style="max-width:300px">
-	<source src="Agent-1.webm" type="video/webm">
-	Your browser does not support the video tag.
-</video>
-
-<p class="screenshot-gallery">
-	<img src="UI-1-200.png" data-full="UI-1.png" alt="AutoClickerMaui UI screenshot 1" onclick="acmEnlarge(this)">
-	<img src="UI-2-200.png" data-full="UI-2.png" alt="AutoClickerMaui UI screenshot 2" onclick="acmEnlarge(this)">
-	<img src="UI-3-200.png" data-full="UI-3.png" alt="AutoClickerMaui UI screenshot 3" onclick="acmEnlarge(this)">
-</p>
-
-<div id="acm-lightbox" onclick="acmCloseEnlarge()" style="display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,0.85); cursor:zoom-out; align-items:center; justify-content:center;">
-	<img id="acm-lightbox-img" src="" alt="" style="max-width:90vw; max-height:90vh; box-shadow:0 0 20px rgba(0,0,0,0.5);">
-</div>
-
-<style>
-	.screenshot-gallery img { cursor: zoom-in; margin-right: 8px; }
-</style>
-
-<script>
-	function acmEnlarge(img) {
-		var lightbox = document.getElementById('acm-lightbox');
-		var lightboxImg = document.getElementById('acm-lightbox-img');
-		lightboxImg.src = img.getAttribute('data-full');
-		lightboxImg.alt = img.alt;
-		lightbox.style.display = 'flex';
-	}
-	function acmCloseEnlarge() {
-		document.getElementById('acm-lightbox').style.display = 'none';
-	}
-	document.addEventListener('keydown', function (e) {
-		if (e.key === 'Escape') acmCloseEnlarge();
-	});
-</script>
 
 <p><b>AutoClickerMaui</b> is a free, open-source Android app that automates repetitive tapping in any app or on your home screen.
 You record a sequence of taps once — either at fixed coordinates or targeting a specific image on screen — and the app replays them in a continuous loop, with no root access required.
 It can also hand control of the screen to an AI agent, which watches a screenshot of your app and either marks where to tap or taps for you.</p>
 
-<h3>Features</h3>
+<h2 id="screenshots">Screenshots</h2>
+
+<video class="demo-video" controls>
+	<source src="Agent-1.webm" type="video/webm">
+	Your browser does not support the video tag.
+</video>
+
+<div class="gallery">
+	<a href="UI-1.png"><img src="UI-1-200.png" alt="AutoClickerMaui UI screenshot 1"></a>
+	<a href="UI-2.png"><img src="UI-2-200.png" alt="AutoClickerMaui UI screenshot 2"></a>
+	<a href="UI-3.png"><img src="UI-3-200.png" alt="AutoClickerMaui UI screenshot 3"></a>
+</div>
+
+<h2 id="features">Features</h2>
 
 <ul>
-	<li><b>Record & replay tap sequences.</b> Draw numbered action markers directly on top of any app to build a "group" of steps, then play the whole sequence back on a loop.</li>
+	<li><b>Record &amp; replay tap sequences.</b> Draw numbered action markers directly on top of any app to build a "group" of steps, then play the whole sequence back on a loop.</li>
 	<li>
 		<b>Two click modes:</b>
 		<ul>
@@ -59,7 +40,7 @@ It can also hand control of the screen to an AI agent, which watches a screensho
 	</li>
 	<li><b>Per-app groups.</b> Each recorded sequence remembers which app it was recorded against (shown with that app's name and icon), or is tagged "Desktop" if recorded on the home screen. Selecting a group can bring its target app to the foreground automatically for editing.</li>
 	<li><b>Floating overlay controls.</b> A draggable "Actions" button floats over your screen while recording or playing: drag it out of the way, tap it to start/stop the loop, and long-press markers to reposition them.</li>
-	<li><b>AI agent ("Ask AI").</b> An optional floating button lets you type a plain-language request (e.g. "tap the Buy button"); the app sends a screenshot and your request to an LLM you configure, which can either mark where to tap for you to confirm (**Show Location** mode) or tap on your behalf (**Auto Click** mode) — see [AI Agent](#ai-agent) below.</li>
+	<li><b>AI agent ("Ask AI").</b> An optional floating button lets you type a plain-language request (e.g. "tap the Buy button"); the app sends a screenshot and your request to an LLM you configure, which can either mark where to tap for you to confirm (<b>Show Location</b> mode) or tap on your behalf (<b>Auto Click</b> mode) — see <a href="#ai-agent">AI Agent</a> below.</li>
 	<li><b>Conversation log.</b> A flyout page showing everything exchanged with the AI agent — your prompts, the screenshots it saw, the tool calls it made, and its replies — for transparency into what it did and why.</li>
 	<li>
 		<b>Tunable timing</b>, via the in-app Settings page:
@@ -72,10 +53,10 @@ It can also hand control of the screen to an AI agent, which watches a screensho
 	<li><b>No root required.</b> Taps and screenshots are performed through Android's built-in Accessibility Service APIs.</li>
 </ul>
 
-<h3>How it works</h3>
+<h2 id="how-it-works">How it works</h2>
 
 <ol>
-	<li><b>Grant permissions</b> the first time you open the app — see [Permissions](#permissions) below.</li>
+	<li><b>Grant permissions</b> the first time you open the app — see <a href="#permissions">Permissions</a> below.</li>
 	<li>On the <b>home screen</b>, tap <b>Record</b> to start a new group, or select an existing group and tap <b>Edit</b> to modify it.</li>
 	<li>A floating overlay appears over whatever app is in front. Tap anywhere to drop a numbered marker (a coordinate click), or use the crop tool to select a region of the screen to record an image-based click.</li>
 	<li>Drag markers to reposition them, or open a marker's menu to delete it.</li>
@@ -83,7 +64,7 @@ It can also hand control of the screen to an AI agent, which watches a screensho
 	<li>Back on the home screen, rename or remove any group from its "⋮" menu, and adjust timing under <b>Settings</b>.</li>
 </ol>
 
-<h3>AI Agent</h3>
+<h2 id="ai-agent">AI Agent</h2>
 
 <p>AutoClickerMaui can call out to an AI model to help you build or drive a sequence, instead of (or alongside) recording one by hand.</p>
 
@@ -101,7 +82,7 @@ It can also hand control of the screen to an AI agent, which watches a screensho
 
 <p>Conversation history is kept only in memory by default for the current session and is not written to disk. No screenshot or credential data is sent anywhere except to the AI provider you configure.</p>
 
-<h3>Permissions</h3>
+<h2 id="permissions">Permissions</h2>
 
 <p>AutoClickerMaui needs the following to function:</p>
 
@@ -118,7 +99,7 @@ It can also hand control of the screen to an AI agent, which watches a screensho
 			<td>Lets the app take screenshots (for image matching) and dispatch simulated taps. Must be enabled manually &mdash; the app shows a banner with a shortcut to Android's Accessibility settings if it isn't.</td>
 		</tr>
 		<tr>
-			<td><b>Display over other apps</b> (`SYSTEM_ALERT_WINDOW`)</td>
+			<td><b>Display over other apps</b> (<code>SYSTEM_ALERT_WINDOW</code>)</td>
 			<td>Draws the recording/playback overlay (markers, Actions button) on top of other apps.</td>
 		</tr>
 		<tr>
@@ -134,24 +115,24 @@ It can also hand control of the screen to an AI agent, which watches a screensho
 
 <p>None of this data leaves your device except when you explicitly configure and use the AI Agent feature, in which case screenshots and your prompts are sent only to the AI provider you set up. Image templates used for image matching are processed only locally and are never uploaded.</p>
 
-<h3>Requirements</h3>
+<h2 id="requirements">Requirements</h2>
 
 <ul>
 	<li>Android 5.0 (API 21) or later.</li>
 	<li>Not currently available for iOS, Windows, or macOS.</li>
 </ul>
 
-<h3>Installation</h3>
+<h2 id="installation">Installation</h2>
 
 <p>AutoClickerMaui isn't published on the Play Store. Each push to the main branch is automatically built, signed, and published as an APK.</p>
 
 <ol>
-	<li>Download the latest `.apk`.</li>
+	<li>Download the latest <code>.apk</code>.</li>
 	<li>On your Android device, allow installation from unknown sources if prompted.</li>
 	<li>Install the APK and open the app.</li>
 	<li>Follow the in-app permission prompts before recording your first sequence.</li>
 </ol>
 
-<h3>Disclaimer</h3>
+<h2 id="disclaimer">Disclaimer</h2>
 
 <p>Automating taps may violate the terms of service of some apps or games. Use AutoClickerMaui responsibly and at your own risk.</p>

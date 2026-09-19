@@ -1,0 +1,24 @@
+---
+layout: default
+title: Home
+---
+{%- assign projects = site.pages | where: "layout", "project" -%}
+<header class="home-hero">
+	<h1>Deployed private releases</h1>
+	<p>Download builds of my private repository apps that are distributed directly from here rather than through an app store.</p>
+	<p class="muted">Pick a project to see what it does and its releases: each version is listed with its release date and files (with sizes), newest first. Older versions are collapsed under the latest one. Only recent releases are kept, and the oldest are removed automatically.</p>
+</header>
+
+{%- for group in site.groups -%}
+{%- assign items = projects | where: "group", group.id | sort: "project" -%}
+{%- if items.size > 0 %}
+<section class="project-group">
+	<h2>{{ group.name }} <span class="Counter">{{ items.size }}</span></h2>
+	<div class="card-grid">
+		{%- for item in items %}
+		{% include project_card.html project=item group=group %}
+		{%- endfor %}
+	</div>
+</section>
+{%- endif -%}
+{%- endfor %}

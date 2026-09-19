@@ -1,40 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" data-color-mode="auto" data-light-theme="light" data-dark-theme="dark">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link href="/css/a.css" rel="stylesheet" />
 		<link href="https://unpkg.com/@primer/css@20.8.0/dist/primer.css" rel="stylesheet" crossorigin="anonymous" />
+		<link href="/css/a.css" rel="stylesheet" />
+		<script src="/js/lightbox.js" defer></script>
+		<script src="/js/page_toc.js" defer></script>
 
-		<title>{{ page.title }}</title>
+		<title>{% if page.url == '/' %}{{ site.title }}{% else %}{{ page.title }} &middot; {{ site.title }}{% endif %}</title>
 	</head>
 	<body>
-		<input type="checkbox" id="nav-toggle" class="nav-toggle" />
+		<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation" />
 
-		<aside>
+		<header class="topbar">
+			<label for="nav-toggle" class="nav-burger" aria-hidden="true">
+				<span></span>
+				<span></span>
+				<span></span>
+			</label>
+			<a class="topbar-title" href="/">{{ site.title }}</a>
+		</header>
+
+		<aside class="sidebar">
+			<a class="brand" href="/">
+				<span class="brand-name">DKorablin</span>
+				<span class="brand-sub">Private releases</span>
+			</a>
+
 			{% include toc.html %}
 
 			<footer>
-				<div>
-					{%- assign host = 'github' -%}
-					{%- if jekyll.environment == 'gitlab' %}{% assign host = 'gitlab' %}{% endif -%}
+				<div class="profiles">
 					{%- for profile in site.profiles -%}
-					<div><a href="{{ profile.url }}">{{ profile.name }}</a></div>
-					<div>{% if profile.id == host %}Built on {{ site.time | date: "%d.%m.%Y %H:%M:%S" }}{% else %}.{% endif %}</div>
+					<a href="{{ profile.url }}">{{ profile.name }}</a>
 					{%- endfor -%}
 				</div>
+				{%- assign host = 'github' -%}
+				{%- if jekyll.environment == 'gitlab' %}{% assign host = 'gitlab' %}{% endif -%}
+				{%- for profile in site.profiles -%}
+				{%- if profile.id == host %}
+				<div class="build-info">Built on {{ profile.name }}<br>{{ site.time | date: "%d.%m.%Y %H:%M:%S" }}</div>
+				{%- endif -%}
+				{%- endfor %}
 			</footer>
 		</aside>
 
 		<label for="nav-toggle" class="nav-overlay"></label>
 
 		<main>
-			<label for="nav-toggle" class="nav-burger">
-				<span></span>
-				<span></span>
-				<span></span>
-			</label>
-			{{ content }}
+			<div class="page">
+				{{ content }}
+			</div>
 		</main>
 	</body>
 </html>

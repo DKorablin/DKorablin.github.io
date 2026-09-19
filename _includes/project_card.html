@@ -1,0 +1,13 @@
+{%- comment -%}Home page card. Usage: {% include project_card.html project=item group=group %}{%- endcomment -%}
+{%- assign latest = site.data[include.project.project] | first -%}
+<a class="project-card" href="{{ include.project.url }}">
+	<span class="app-icon" style="background:{{ include.group.color }}" aria-hidden="true">{{ include.project.icon | default: include.project.title | slice: 0, 3 }}</span>
+	<span class="project-card-body">
+		<span class="project-card-title">{{ include.project.title }}</span>
+		<span class="project-card-text">{{ include.project.tagline }}</span>
+		<span class="project-card-meta">
+			{%- for platform in include.project.platforms %}<span class="Label Label--secondary">{{ platform }}</span>{% endfor -%}
+			{%- if latest %}<span class="project-card-version">{{ latest.tag }} &middot; {{ latest.date }}</span>{% endif -%}
+		</span>
+	</span>
+</a>

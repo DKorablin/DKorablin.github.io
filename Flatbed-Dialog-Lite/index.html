@@ -1,18 +1,22 @@
 ---
-layout: default
+layout: project
 title: Flatbed.Dialog.Lite
+project: Flatbed-Dialog-Lite
+group: flatbed
+icon: DLL
+tagline: Basic dialog host that opens the UI of every loaded plugin
+platforms:
+  - Windows
+  - .NET Framework
+  - .NET 8
 ---
-
-<h1>SAL Host Dialog [Lite] (Dialog based Interface basic version)</h1>
-
-{% include files_list.html releases=site.data.Flatbed-Dialog-Lite %}
 
 <p>Basic dialog based interface to quickly open any plugin with UI.</p>
 <p>It will starts to enumerate all loaded plugins and try to open it UI by invoking <code>IMenuItem.OnClick</code>. It's done to simplify procedure to run simple tasks without describing user where he need to click to open an application.</p>
 <p>It contains minimum logic and will do nothing if there is no any plugins in current folder. All launch logs will be stored to Flatbed.Dialog.Lite.log file.</p>
 
-<h3>Automation</h3>
-Host will automate following tasks:
+<h2 id="automation">Automation</h2>
+<p>Host will automate following tasks:</p>
 <ol>
 	<li>Open all found dialog windows</li>
 	<li>"Stick" windows to each other based on component <a href="http://www.codeproject.com/Articles/6045/Sticky-Windows-How-to-make-your-top-level-forms-to">StickyWindow</a>.</li>

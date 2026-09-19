@@ -1,0 +1,46 @@
+---
+layout: default
+---
+{%- assign releases = site.data[page.project] -%}
+{%- assign latest = releases | first -%}
+{%- assign group = site.groups | where: "id", page.group | first -%}
+<header class="project-hero">
+	<span class="app-icon app-icon-lg" style="background:{{ group.color }}" aria-hidden="true">{{ page.icon | default: page.title | slice: 0, 3 }}</span>
+	<div class="project-hero-body">
+		<h1>{{ page.title }}</h1>
+		{%- if page.tagline %}
+		<p class="tagline">{{ page.tagline }}</p>
+		{%- endif %}
+		{%- if page.platforms %}
+		<p class="badges">
+			{%- for platform in page.platforms %}<span class="Label Label--secondary">{{ platform }}</span>{% endfor -%}
+		</p>
+		{%- endif %}
+	</div>
+</header>
+
+{%- if latest %}
+<section class="download" aria-label="Download">
+	<div class="download-caption">
+		Latest release <strong>{{ latest.tag }}</strong> <span class="release-date">&middot; {{ latest.date }}</span>
+	</div>
+	<div class="download-buttons">
+		{%- for file in latest.files %}
+		<a class="btn btn-primary" href="{{ file.url }}">
+			<svg class="octicon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z"></path><path d="M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.969a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.749.749 0 0 1-1.06 0L4.22 6.78a.749.749 0 1 1 1.06-1.06l1.97 1.969Z"></path></svg>
+			{{ file.name }}
+			<span class="btn-size">{% include filesize.html bytes=file.size %}</span>
+		</a>
+		{%- endfor %}
+	</div>
+</section>
+{%- endif %}
+
+{% include files_list.html releases=releases %}
+
+<div class="project-body">
+	<article class="doc-body markdown-body">
+		{{ content }}
+	</article>
+	<nav class="page-toc" aria-label="On this page" hidden></nav>
+</div>

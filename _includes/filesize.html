@@ -1,0 +1,10 @@
+{%- comment -%}Human readable file size. Usage: {% include filesize.html bytes=file.size %}{%- endcomment -%}
+{%- if include.bytes < 1024 -%}
+	{{ include.bytes }} B
+{%- elsif include.bytes < 1048576 -%}
+	{{ include.bytes | divided_by: 1024.0 | round: 1 }} KB
+{%- elsif include.bytes < 1073741824 -%}
+	{{ include.bytes | divided_by: 1048576.0 | round: 1 }} MB
+{%- else -%}
+	{{ include.bytes | divided_by: 1073741824.0 | round: 1 }} GB
+{%- endif -%}

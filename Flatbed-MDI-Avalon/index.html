@@ -1,15 +1,18 @@
 ---
-layout: default
+layout: project
 title: Flatbed.MDI.Avalon
+project: Flatbed-MDI-Avalon
+group: flatbed
+icon: AVL
+tagline: MDI host built on WPF and AvalonDock
+platforms:
+  - Windows
+  - .NET 8
 ---
 
-<h1>SAL Host MDI [Avalon]</h1>
+<p>MDI interface based on WPF <a href="https://github.com/Dirkster99/AvalonDock">Avalon MDI</a> component.</p>
 
-{% include files_list.html releases=site.data.Flatbed-MDI-Avalon %}
-
-MDI interface based on WPF <a href="https://github.com/Dirkster99/AvalonDock">Avalon MDI</a> component.
-
-<h3>Automation</h3>
+<h2 id="automation">Automation</h2>
 <p>Host will automate following actions:</p>
 <ol>
 	<li>Size and location of application and all of the opened windows.</li>
@@ -18,9 +21,14 @@ MDI interface based on WPF <a href="https://github.com/Dirkster99/AvalonDock">Av
 	<li>Supported plugins with Windows Forms controls or WPF controls.</li>
 </ol>
 
-<h3>Installation</h3>
-<p>Extract all contents to empty folders, add required plugins to current directory and launch Flatbed.MDI.Avalon.exe file. If you required to launch separate instance of executable, then you need to add Kernel plugin (For example Kernel.Empty) or change keys <code>SAL_KernelName</code> and <code>SAL_KernelCompany</code> in the Flatbed.MDI.Avalon.dll.config file. Without changing default kernel plugin name all plugins collection will be combined and identified as default Kernel libraries with single settings storage.</p> <pre>/SAL_path:C:\MyApplication\</pre>
+<h2 id="installation">Installation</h2>
+<p>Extract all contents to empty folders, add required plugins to current directory and launch Flatbed.MDI.Avalon.exe file. If you required to launch separate instance of executable, then you need to add Kernel plugin (For example Kernel.Empty) or change keys <code>SAL_KernelName</code> and <code>SAL_KernelCompany</code> in the Flatbed.MDI.Avalon.dll.config file. Without changing default kernel plugin name all plugins collection will be combined and identified as default Kernel libraries with single settings storage.</p> 
+<pre>/SAL_path:C:\MyApplication\</pre>
 
-<h3>Requirements</h3>
+<h2 id="requirements">Requirements</h2>
 <p>The application requires <a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">.NET version 8 or higher</a> to work.</p>
-<a href="Flatbed.MDI.Avalon-1.png" title="UI example"><img src="Flatbed.MDI.Avalon-1-200.png" /></a>
+
+<h2 id="screenshots">Screenshots</h2>
+<div class="gallery">
+	<a href="Flatbed.MDI.Avalon-1.png" title="UI example"><img src="Flatbed.MDI.Avalon-1-200.png" alt="Flatbed.MDI.Avalon UI example"></a>
+</div>

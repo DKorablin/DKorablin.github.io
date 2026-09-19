@@ -9,6 +9,15 @@ profiles:
     name: GitLab
     url: https://gitlab.com/DKorablin
 
+# Sidebar/home-page sections. A project page joins one via its `group:` front matter.
+groups:
+  - id: apps
+    name: Android apps
+    color: "#1a7f64"
+  - id: flatbed
+    name: Flatbed hosts
+    color: "#0969da"
+
 defaults:
   -
     scope:
@@ -19,6 +28,7 @@ defaults:
 exclude:
 - scripts/
 - AGENTS.md
+- README.md
 
 sass:
   style: compressed
