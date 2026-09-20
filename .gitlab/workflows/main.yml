@@ -5,6 +5,12 @@ variables:
   KEEP_COUNT:
     value: "5"
     description: "Number of old releases to keep (used by prune-releases)"
+  REMOVE_PROJECT:
+    value: ""
+    description: "Application to remove a release from, e.g. AutoClickerMaui (used by remove-release)"
+  REMOVE_VERSION:
+    value: ""
+    description: "Release tag to remove, e.g. v1.1.7 (used by remove-release; leave empty to run prune-releases instead)"
 
 # Builds the Jekyll site and publishes it to GitLab Pages (GitHub builds it on its own).
 pages:
@@ -30,7 +36,7 @@ prune-releases:
   stage: deploy
   image: python:3
   rules:
-    - if: $ENABLE_PRUNE == "true" && ($CI_PIPELINE_SOURCE == "schedule" || $CI_PIPELINE_SOURCE == "web")
+    - if: $ENABLE_PRUNE == "true" && ($REMOVE_VERSION == null || $REMOVE_VERSION == "") && ($CI_PIPELINE_SOURCE == "schedule" || $CI_PIPELINE_SOURCE == "web")
   script:
     - pip install pyyaml
     - python scripts/prune_releases.py
@@ -43,4 +49,26 @@ prune-releases:
         exit 0
       fi
     - git commit -m "Prune old releases"
+    - git push "https://prune-bot:${PRUNE_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git" "HEAD:${CI_DEFAULT_BRANCH}"
+
+# Removes one specific release. Run a pipeline manually (Build > Pipelines > New pipeline) with
+# ENABLE_PRUNE=true, REMOVE_PROJECT (e.g. AutoClickerMaui) and REMOVE_VERSION (e.g. v1.1.7).
+# Same PRUNE_TOKEN requirement as prune-releases. Counterpart of .github/workflows/remove-release.yml.
+remove-release:
+  stage: deploy
+  image: python:3
+  rules:
+    - if: $ENABLE_PRUNE == "true" && $REMOVE_PROJECT && $REMOVE_VERSION && $CI_PIPELINE_SOURCE == "web"
+  script:
+    - pip install pyyaml
+    - PROJECT="$REMOVE_PROJECT" VERSION="$REMOVE_VERSION" python scripts/remove_release.py
+    - git config user.name "gitlab-ci[bot]"
+    - git config user.email "gitlab-ci[bot]@users.noreply.gitlab.com"
+    - git add .
+    - |
+      if git diff --cached --quiet; then
+        echo "No changes to commit"
+        exit 0
+      fi
+    - git commit -m "Remove release ${REMOVE_VERSION} of ${REMOVE_PROJECT}"
     - git push "https://prune-bot:${PRUNE_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git" "HEAD:${CI_DEFAULT_BRANCH}"

@@ -32,6 +32,7 @@ There is no application code and no test suite. The "code" is Liquid templates, 
 | `<Project>/latest.json` | Front-matter-only file using `latest-json` layout; permalink `/<Project>/latest.json` |
 | `<Project>/v<X.Y.Z>/...` | Release artifacts (binary files committed to git) |
 | `scripts/prune_releases.py` | Deletes old releases (data entries + folders) |
+| `scripts/remove_release.py` | Deletes one specific release (data entry + folder) |
 | `README.md` | Repository readme only (excluded from the site; the home page is `index.html`) |
 
 Projects currently: AutoClickerMaui, FakeGpsMaui, Flatbed-Dialog, Flatbed-Dialog-Lite, Flatbed-MDI, Flatbed-MDI-Avalon, Flatbed-MDI-AvaloniaUI, Flatbed-WorkerService.
@@ -76,6 +77,15 @@ New releases are normally committed by the release pipelines of the source repos
 - GitLab: `prune-releases` job in `.gitlab/workflows/main.yml`. Disabled unless `ENABLE_PRUNE=true` (so the mirror doesn't diverge from the primary); needs masked variable `PRUNE_TOKEN`.
 
 Run locally: `KEEP_COUNT=5 python scripts/prune_releases.py` (needs `pyyaml`). It is destructive (deletes folders) - check `git status` afterwards.
+
+### Removing one specific release
+
+`scripts/remove_release.py` deletes a single release: the entry in `_data/<PROJECT>.yml` and the `<PROJECT>/<VERSION>/` folder (env vars `PROJECT` and `VERSION` are **required**; `PROJECT` must match an existing `_data` file, `VERSION` an existing tag; it refuses to remove a project's only release). Commits "Remove release <VERSION> of <PROJECT>". Manual only:
+
+- GitHub: `.github/workflows/remove-release.yml` (Actions > Remove release > Run workflow; inputs `project`, `version`).
+- GitLab: `remove-release` job in `.gitlab/workflows/main.yml`. Run a pipeline manually with `ENABLE_PRUNE=true`, `REMOVE_PROJECT`, `REMOVE_VERSION`; same `PRUNE_TOKEN` as pruning. When `REMOVE_VERSION` is set, `prune-releases` is skipped so the two jobs never push concurrently.
+
+Run locally: `PROJECT=AutoClickerMaui VERSION=v1.1.7 python scripts/remove_release.py`.
 
 ## Host-specific footer
 

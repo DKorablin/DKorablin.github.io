@@ -1,0 +1,53 @@
+name: Remove release
+
+on:
+  workflow_dispatch:
+    inputs:
+      project:
+        description: 'Application (name of the _data/<name>.yml file), e.g. AutoClickerMaui'
+        required: true
+      version:
+        description: 'Release tag to remove, e.g. v1.1.7'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  remove:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Remove release
+        env:
+          PROJECT: ${{ github.event.inputs.project }}
+          VERSION: ${{ github.event.inputs.version }}
+        run: python scripts/remove_release.py
+
+      - name: Commit and push
+        env:
+          PROJECT: ${{ github.event.inputs.project }}
+          VERSION: ${{ github.event.inputs.version }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Remove release ${VERSION} of ${PROJECT}"
+          git push origin main
