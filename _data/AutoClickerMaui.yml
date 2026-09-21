@@ -1,15 +1,3 @@
-- tag: "v1.1.9"
-  date: "2026-09-20"
-  files:
-    - name: "AutoClickerMaui-v1.1.9.apk"
-      url: "/AutoClickerMaui/v1.1.9/AutoClickerMaui-v1.1.9.apk"
-      size: 53314599
-- tag: "v1.1.8"
-  date: "2026-09-20"
-  files:
-    - name: "AutoClickerMaui-v1.1.8.apk"
-      url: "/AutoClickerMaui/v1.1.8/AutoClickerMaui-v1.1.8.apk"
-      size: 53314599
 - tag: v1.1.6
   date: '2026-09-12'
   files:
