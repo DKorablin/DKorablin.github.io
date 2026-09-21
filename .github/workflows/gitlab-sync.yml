@@ -1,19 +1,32 @@
-name: Mirror to GitLab
+name: Sync with GitLab
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: '*/30 * * * *'
   workflow_dispatch:
 
 concurrency: mirror-gitlab
 
+permissions:
+  contents: write
+
 jobs:
-  mirror:
+  sync:
     runs-on: ubuntu-latest
+    env:
+      GITLAB_URL: https://oauth2:${{ secrets.GITLAB_GITHUB_SYNC }}@gitlab.com/DKorablin/dkorablin.gitlab.io.git
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Pull from GitLab
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch "$GITLAB_URL" main
+          git merge --no-edit FETCH_HEAD
+      - name: Push to GitHub
+        run: git push origin HEAD:main
       - name: Push to GitLab
-        env:
-          GITLAB_TOKEN: ${{ secrets.GITLAB_GITHUB_SYNC }}
-        run: git push "https://oauth2:${GITLAB_TOKEN}@gitlab.com/DKorablin/dkorablin.gitlab.io.git" HEAD:main
+        run: git push "$GITLAB_URL" HEAD:main
