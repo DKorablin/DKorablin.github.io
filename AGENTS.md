@@ -24,6 +24,7 @@ There is no application code and no test suite. The "code" is Liquid templates, 
 | `_includes/project_card.html` | Home page card for one project |
 | `_includes/files_list.html` | Release history (latest highlighted, older releases in a `<details>`); called by `project.html` |
 | `_includes/filesize.html` | Formats a byte count (`B`/`KB`/`MB`/`GB`) |
+| `js/markdown_media.js` | Turns Markdown image-link paragraphs (`[![alt](thumb)](full)`) into a `.gallery`, and links to `.webm`/`.mp4` into a `<video class="demo-video">`, so README.md-based project pages match the HTML ones |
 | `js/lightbox.js` | Enlarges images in a `.gallery` on click (plain links without JS) |
 | `js/page_toc.js` | Builds the "On this page" list from the `h2`/`h3` of a project page |
 | `css/a.scss` | The only stylesheet (front-matter'd, compiled to `/css/a.css`) |
