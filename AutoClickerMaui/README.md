@@ -2,10 +2,12 @@
 You record a sequence of taps once — either at fixed coordinates or targeting a specific image on screen — and the app replays them in a continuous loop, with no root access required.
 It can also hand control of the screen to an AI agent, which watches a screenshot of your app and either marks where to tap or taps for you.
 
-[![UI Screenshot](UI-1-200.png)](UI-1.png)
-[![UI Screenshot](UI-2-200.png)](UI-2.png)
-[![UI Screenshot](UI-3-200.png)](UI-3.png)
-[![Agent Video](Agent-1-200.png)](Agent-1.webm)
+## Screenshots
+
+[![UI Screenshot](.github/assets/UI-1-200.png)](.github/assets/UI-1.png)
+[![UI Screenshot](.github/assets/UI-2-200.png)](.github/assets/UI-2.png)
+[![UI Screenshot](.github/assets/UI-3-200.png)](.github/assets/UI-3.png)
+[![Agent Video](.github/assets/Agent-1-200.png)](.github/assets/Agent-1.webm)
 
 ## Features
 
