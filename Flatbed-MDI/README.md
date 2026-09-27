@@ -2,7 +2,7 @@ Multiple Document Interface (MDI) host with plugin-based, dockable window system
 
 
 
-\[!\[UI Screenshot](.github/assets/UI-1-200.png)](.github/assets/UI-1.png)
+[![UI Screenshot](.github/assets/UI-1-200.png)](.github/assets/UI-1.png)
 
 ## Overview
 

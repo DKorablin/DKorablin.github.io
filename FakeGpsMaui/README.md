@@ -1,24 +1,5 @@
-# FakeGpsMaui
-
 A GPS spoofing / mock-location application for Android, built with **.NET MAUI** (net10.0-android).  
 It injects a fake GPS position into the Android location stack via a persistent foreground service, letting any app on the device see whatever coordinates you choose — either a fixed point or a moving route.
-
----
-
-## Table of Contents
-
-- [Features](#features)
-- [Requirements](#requirements)
-- [Setup](#setup)
-- [Usage](#usage)
-  - [Single-Point Mode](#single-point-mode)
-  - [Route Mode](#route-mode)
-- [Settings Reference](#settings-reference)
-- [Architecture Overview](#architecture-overview)
-  - [Project Structure](#project-structure)
-  - [Key Components](#key-components)
-- [Permissions](#permissions)
-- [Building](#building)
 
 ---
 
