@@ -74,7 +74,7 @@ New releases are normally committed by the release pipelines of the source repos
 
 ## Project description from README.md
 
-The description of a project is its source repository's `README.md`, copied as is into `<Project>/README.md` (plus the images/videos it references, at the same relative paths). The copy step must not modify it; everything site-specific happens at build time:
+The description of a project is its source repository's `README.md`, copied as is into `<Project>/README.md` (plus the images/videos it references, at the same relative paths, usually `<Project>/.github/assets/`). Dot-folders are normally skipped by Jekyll, so `_config.yml` has `include: [.github]`; that matches every `.github` folder by name, including the root one, whose `workflows/` is kept out by `exclude`. Media in any other dot-folder needs its own `include` entry. The copy step must not modify the README; everything site-specific happens at build time:
 
 - `index.html` names it with `readme: README.md` in the front matter; `_layouts/project.html` reads it with `include_relative`, renders it with `markdownify` (kramdown GFM) and drops its leading `# Title` (the hero shows the title).
 - `js/markdown_media.js` turns image-link paragraphs into a `.gallery` and video links into a `<video>`.
