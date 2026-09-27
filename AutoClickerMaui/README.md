@@ -1,8 +1,8 @@
+# AutoClickerMaui
+
 **AutoClickerMaui** is a free, open-source Android app that automates repetitive tapping in any app or on your home screen.
 You record a sequence of taps once — either at fixed coordinates or targeting a specific image on screen — and the app replays them in a continuous loop, with no root access required.
 It can also hand control of the screen to an AI agent, which watches a screenshot of your app and either marks where to tap or taps for you.
-
-## Screenshots
 
 [![UI Screenshot](.github/assets/UI-1-200.png)](.github/assets/UI-1.png)
 [![UI Screenshot](.github/assets/UI-2-200.png)](.github/assets/UI-2.png)
