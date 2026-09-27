@@ -1,6 +1,6 @@
-{%- comment -%}Home page card. Usage: {% include project_card.html project=item group=group %}{%- endcomment -%}
-{%- assign latest = site.data[include.project.project] | first -%}
-<a class="project-card" href="{{ include.project.url }}">
+{%- comment -%}Home page card. Usage: {% include project_card.html project=item group=group %} (item is an entry of _data/projects.yml){%- endcomment -%}
+{%- assign latest = site.data[include.project.id] | first -%}
+<a class="project-card" href="/{{ include.project.id }}/">
 	<span class="app-icon" style="background:{{ include.group.color }}" aria-hidden="true">{{ include.project.icon | default: include.project.title | slice: 0, 3 }}</span>
 	<span class="project-card-body">
 		<span class="project-card-title">{{ include.project.title }}</span>

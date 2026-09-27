@@ -1,7 +1,9 @@
 ---
 layout: null
 ---
-{%- assign latest = site.data[page.project][0] -%}
+{%- comment -%}The page is <id>/latest.json; its folder name is the project id.{%- endcomment -%}
+{%- assign project_id = page.dir | remove: "/" -%}
+{%- assign latest = site.data[project_id] | first -%}
 {
 	"tag": {{ latest.tag | jsonify }},
 	"version": {{ latest.tag | remove_first: "v" | jsonify }},

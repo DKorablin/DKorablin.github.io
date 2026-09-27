@@ -9,6 +9,7 @@ import yaml
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = REPO_ROOT / "_data"
+PROJECTS_FILE = "projects.yml"  # project list, not a release list
 
 
 def read_env(name: str, what: str) -> str:
@@ -23,7 +24,7 @@ def main() -> None:
     tag = read_env("VERSION", "release tag, e.g. v1.1.7")
 
     # Only names that have a data file are accepted, so the value can never point outside the repo
-    projects = sorted(p.stem for p in DATA_DIR.glob("*.yml"))
+    projects = sorted(p.stem for p in DATA_DIR.glob("*.yml") if p.name != PROJECTS_FILE)
     if project not in projects:
         sys.exit(f"Unknown project {project!r}. Available: {', '.join(projects)}")
 

@@ -1,14 +1,15 @@
-{%- assign projects = site.pages | where: "layout", "project" -%}
+{%- assign projects = site.data.projects -%}
 <nav class="side-nav" aria-label="Projects">
 	<a class="side-nav-home{% if page.url == '/' %} active{% endif %}" href="/">All projects</a>
 	{%- for group in site.groups -%}
-	{%- assign items = projects | where: "group", group.id | sort: "project" -%}
+	{%- assign items = projects | where: "group", group.id | sort: "id" -%}
 	{%- if items.size > 0 %}
 	<details class="nav-group" open>
 		<summary>{{ group.name }}</summary>
 		<ul>
 			{%- for item in items %}
-			<li><a href="{{ item.url }}"{% if item.url == page.url %} class="active" aria-current="page"{% endif %}>{{ item.title }}</a></li>
+			{%- capture item_url %}/{{ item.id }}/{% endcapture %}
+			<li><a href="{{ item_url }}"{% if item_url == page.url %} class="active" aria-current="page"{% endif %}>{{ item.title }}</a></li>
 			{%- endfor %}
 		</ul>
 	</details>

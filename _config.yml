@@ -24,6 +24,18 @@ defaults:
       path: ""   # applies to all files
     values:
       layout: default
+  # Project folders hold only generated files; index.html and latest.json have empty front matter
+  # and get their layout here. The project is the folder name, looked up in _data/projects.yml.
+  -
+    scope:
+      path: "*/index.html"
+    values:
+      layout: project
+  -
+    scope:
+      path: "*/latest.json"
+    values:
+      layout: latest-json
 
 exclude:
 - scripts/

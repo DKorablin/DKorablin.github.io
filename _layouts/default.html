@@ -9,7 +9,9 @@
 		<script src="/js/lightbox.js" defer></script>
 		<script src="/js/page_toc.js" defer></script>
 
-		<title>{% if page.url == '/' %}{{ site.title }}{% else %}{{ page.title }} &middot; {{ site.title }}{% endif %}</title>
+		{%- assign project_id = page.dir | remove: "/" -%}
+		{%- assign project = site.data.projects | where: "id", project_id | first %}
+		<title>{% if page.url == '/' %}{{ site.title }}{% else %}{{ project.title | default: page.title }} &middot; {{ site.title }}{% endif %}</title>
 	</head>
 	<body>
 		<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation" />

@@ -1,19 +1,22 @@
 ---
 layout: default
 ---
-{%- assign releases = site.data[page.project] -%}
+{%- comment -%}The page is <id>/index.html; its folder name is the project id in _data/projects.yml.{%- endcomment -%}
+{%- assign project_id = page.dir | remove: "/" -%}
+{%- assign project = site.data.projects | where: "id", project_id | first -%}
+{%- assign releases = site.data[project_id] -%}
 {%- assign latest = releases | first -%}
-{%- assign group = site.groups | where: "id", page.group | first -%}
+{%- assign group = site.groups | where: "id", project.group | first -%}
 <header class="project-hero">
-	<span class="app-icon app-icon-lg" style="background:{{ group.color }}" aria-hidden="true">{{ page.icon | default: page.title | slice: 0, 3 }}</span>
+	<span class="app-icon app-icon-lg" style="background:{{ group.color }}" aria-hidden="true">{{ project.icon | default: project.title | slice: 0, 3 }}</span>
 	<div class="project-hero-body">
-		<h1>{{ page.title }}</h1>
-		{%- if page.tagline %}
-		<p class="tagline">{{ page.tagline }}</p>
+		<h1>{{ project.title }}</h1>
+		{%- if project.tagline %}
+		<p class="tagline">{{ project.tagline }}</p>
 		{%- endif %}
-		{%- if page.platforms %}
+		{%- if project.platforms %}
 		<p class="badges">
-			{%- for platform in page.platforms %}<span class="Label Label--secondary">{{ platform }}</span>{% endfor -%}
+			{%- for platform in project.platforms %}<span class="Label Label--secondary">{{ platform }}</span>{% endfor -%}
 		</p>
 		{%- endif %}
 	</div>
@@ -40,9 +43,7 @@ layout: default
 
 <div class="project-body">
 	<article class="doc-body markdown-body">
-		{{ content }}
-		{%- if page.readme %}
-		{%- capture readme %}{% include_relative {{ page.readme }} %}{% endcapture -%}
+		{%- capture readme %}{% include_relative README.md %}{% endcapture -%}
 		{%- assign readme = readme | markdownify | strip -%}
 		{%- assign readme = readme | replace: 'src="./.github/assets/', 'src="assets/' | replace: 'href="./.github/assets/', 'href="assets/' -%}
 		{%- assign readme = readme | replace: 'src=".github/assets/', 'src="assets/' | replace: 'href=".github/assets/', 'href="assets/' -%}
@@ -52,7 +53,6 @@ layout: default
 			{%- assign readme = readme | remove_first: readme_h1 | remove_first: "</h1>" -%}
 		{%- endif %}
 		{{ readme }}
-		{%- endif %}
 	</article>
 	<nav class="page-toc" aria-label="On this page" hidden></nav>
 </div>

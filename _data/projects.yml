@@ -1,0 +1,78 @@
+# Every project listed on the site. `id` must equal the project folder and its `_data/<id>.yml` release list.
+# The folder only holds generated files: index.html and latest.json (empty front matter), README.md, assets/ and <tag>/.
+# `group` is an `id` from `groups` in _config.yml; `icon` is 2-3 letters for the coloured tile.
+- id: AutoClickerMaui
+  title: AutoClicker
+  group: apps
+  icon: AC
+  tagline: Record and replay taps on Android, with an optional AI agent
+  platforms:
+    - Android 5.0+
+    - .NET MAUI
+
+- id: FakeGpsMaui
+  title: FakeGPS
+  group: apps
+  icon: GPS
+  tagline: Mock GPS location and moving routes on Android
+  platforms:
+    - Android 5.0+
+    - .NET MAUI
+
+- id: Flatbed-Dialog
+  title: Flatbed.Dialog
+  group: flatbed
+  icon: DLG
+  tagline: Plugin host with a dialog-based interface and a taskbar menu
+  platforms:
+    - Windows
+    - .NET Framework
+    - .NET 8
+
+- id: Flatbed-Dialog-Lite
+  title: Flatbed.Dialog.Lite
+  group: flatbed
+  icon: DLL
+  tagline: Basic dialog host that opens the UI of every loaded plugin
+  platforms:
+    - Windows
+    - .NET Framework
+    - .NET 8
+
+- id: Flatbed-MDI
+  title: Flatbed.MDI
+  group: flatbed
+  icon: MDI
+  tagline: Plugin host with a dockable multi-document interface
+  platforms:
+    - Windows
+    - .NET Framework 4.8
+    - .NET 8
+
+- id: Flatbed-MDI-Avalon
+  title: Flatbed.MDI.Avalon
+  group: flatbed
+  icon: AVL
+  tagline: MDI host built on WPF and AvalonDock
+  platforms:
+    - Windows
+    - .NET 8
+
+- id: Flatbed-MDI-AvaloniaUI
+  title: Flatbed.MDI.AvaloniaUI
+  group: flatbed
+  icon: AVU
+  tagline: MDI host built on AvaloniaUI and the Dock component
+  platforms:
+    - Windows
+    - .NET 8
+
+- id: Flatbed-WorkerService
+  title: Flatbed.WorkerService
+  group: flatbed
+  icon: SVC
+  tagline: Plugin host that runs as a Windows service
+  platforms:
+    - Windows
+    - .NET Framework
+    - .NET 8

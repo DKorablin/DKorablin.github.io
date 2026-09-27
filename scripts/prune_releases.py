@@ -23,6 +23,7 @@ def read_keep_count() -> int:
 KEEP_COUNT = read_keep_count()
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = REPO_ROOT / "_data"
+PROJECTS_FILE = "projects.yml"  # project list, not a release list
 
 
 def prune_project(data_file: Path) -> bool:
@@ -49,6 +50,8 @@ def prune_project(data_file: Path) -> bool:
 
 def main() -> None:
     for data_file in sorted(DATA_DIR.glob("*.yml")):
+        if data_file.name == PROJECTS_FILE:
+            continue
         prune_project(data_file)
 
 if __name__ == "__main__":
