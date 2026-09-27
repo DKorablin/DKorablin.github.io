@@ -74,9 +74,9 @@ New releases are normally committed by the release pipelines of the source repos
 
 ## Project description from README.md
 
-The description of a project is its source repository's `README.md`, copied as is into `<Project>/README.md` (plus the images/videos it references, at the same relative paths, usually `<Project>/.github/assets/`). Dot-folders are normally skipped by Jekyll, so `_config.yml` has `include: [.github]`; that matches every `.github` folder by name, including the root one, whose `workflows/` is kept out by `exclude`. Media in any other dot-folder needs its own `include` entry. The copy step must not modify the README; everything site-specific happens at build time:
+The description of a project is its source repository's `README.md`, copied as is into `<Project>/README.md` (plus the images/videos it references). Source repos keep README media in `.github/assets/`; copy it to `<Project>/assets/` (no dot), because GitHub Pages' deploy step (`actions/upload-pages-artifact`) always drops `.github` folders and Jekyll skips dot-folders. The layout rewrites `.github/assets/...` links in the rendered README to `assets/...`. The copy step must not modify the README; everything site-specific happens at build time:
 
-- `index.html` names it with `readme: README.md` in the front matter; `_layouts/project.html` reads it with `include_relative`, renders it with `markdownify` (kramdown GFM) and drops its leading `# Title` (the hero shows the title).
+- `index.html` names it with `readme: README.md` in the front matter; `_layouts/project.html` reads it with `include_relative`, renders it with `markdownify` (kramdown GFM), points `.github/assets/` links to `assets/` and drops its leading `# Title` (the hero shows the title).
 - `js/markdown_media.js` turns image-link paragraphs into a `.gallery` and video links into a `<video>`.
 - `README.md` has no front matter, so Jekyll copies it as a static file (`jekyll-optional-front-matter` skips READMEs, and `readme_index` is disabled in `_config.yml` so it never replaces `index.html`).
 - Limitation: `include_relative` runs the file through Liquid, so `{{ ... }}` / `{% ... %}` anywhere in the README (code blocks included) is evaluated: it renders wrongly or fails the build.

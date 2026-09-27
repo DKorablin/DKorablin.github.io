@@ -25,14 +25,7 @@ defaults:
     values:
       layout: default
 
-# Jekyll skips dot-folders. Publish every `.github` folder so a README copied as is into
-# <Project>/ finds its images/videos at the same path (<Project>/.github/assets/...).
-# `include` matches by folder name only, so the root .github is included too - its workflows are excluded below.
-include:
-- .github
-
 exclude:
-- .github/workflows
 - scripts/
 - AGENTS.md
 - README.md
