@@ -41,6 +41,20 @@ layout: default
 <div class="project-body">
 	<article class="doc-body markdown-body">
 		{{ content }}
+		{%- if page.readme %}
+		{%- comment -%}
+			README.md copied unchanged from the source repository (next to index.html), rendered as Markdown.
+			Its leading "# Title" is dropped because the hero above already shows the title.
+		{%- endcomment -%}
+		{%- capture readme %}{% include_relative {{ page.readme }} %}{% endcapture -%}
+		{%- assign readme = readme | markdownify | strip -%}
+		{%- assign readme_head = readme | slice: 0, 3 -%}
+		{%- if readme_head == "<h1" -%}
+			{%- assign readme_h1 = readme | split: "</h1>" | first -%}
+			{%- assign readme = readme | remove_first: readme_h1 | remove_first: "</h1>" -%}
+		{%- endif %}
+		{{ readme }}
+		{%- endif %}
 	</article>
 	<nav class="page-toc" aria-label="On this page" hidden></nav>
 </div>

@@ -30,5 +30,10 @@ exclude:
 - AGENTS.md
 - README.md
 
+# Project folders have both index.html and a README.md copied from the source repository;
+# the README is pulled into the page by _layouts/project.html and must never become the index itself.
+readme_index:
+  enabled: false
+
 sass:
   style: compressed

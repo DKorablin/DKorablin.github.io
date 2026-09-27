@@ -17,7 +17,7 @@ There is no application code and no test suite. The "code" is Liquid templates, 
 |---|---|
 | `_config.yml` | Site title, `profiles` (GitHub/GitLab links with an `id`), `groups` (sidebar/home sections with an `id`, `name`, `color`), default layout, `exclude:` (`scripts/`, `AGENTS.md`, `README.md`), compressed Sass |
 | `_layouts/default.html` | Page shell: mobile top bar (burger), sidebar (`toc.html` + footer with profile links / build info), overlay and `<main>` |
-| `_layouts/project.html` | Project page: hero (icon, title, tagline, platform badges), download buttons for the latest release, `files_list.html`, then the page content with an "On this page" list |
+| `_layouts/project.html` | Project page: hero (icon, title, tagline, platform badges), download buttons for the latest release, `files_list.html`, then the page content plus the rendered `readme` file (if set) with an "On this page" list |
 | `_layouts/latest-json.html` | `layout: null` template that renders the newest release of a project as JSON |
 | `index.html` | Home page: intro plus a card grid per group, built from the project pages |
 | `_includes/toc.html` | Sidebar navigation; every page using `layout: project`, grouped by `group` (order from `_config.yml`) and sorted by `project` |
@@ -29,7 +29,8 @@ There is no application code and no test suite. The "code" is Liquid templates, 
 | `js/page_toc.js` | Builds the "On this page" list from the `h2`/`h3` of a project page |
 | `css/a.scss` | The only stylesheet (front-matter'd, compiled to `/css/a.css`) |
 | `_data/<Project>.yml` | Release list for one project, **newest first** |
-| `<Project>/index.html` | Project page: front matter (see below) plus the description HTML, screenshots, etc. |
+| `<Project>/index.html` | Project page: front matter (see below), optionally followed by extra HTML |
+| `<Project>/README.md` | Description: the source repository's README, copied **unchanged** (see "Project description from README.md") |
 | `<Project>/latest.json` | Front-matter-only file using `latest-json` layout; permalink `/<Project>/latest.json` |
 | `<Project>/v<X.Y.Z>/...` | Release artifacts (binary files committed to git) |
 | `scripts/prune_releases.py` | Deletes old releases (data entries + folders) |
@@ -58,7 +59,7 @@ The data file name **must equal** the project folder name (`project.html`, the h
 New releases are normally committed by the release pipelines of the source repositories (commits like "Add release v1.0.3 for FakeGpsMaui"): they add `<Project>/<tag>/<files>` and prepend an entry to `_data/<Project>.yml`. Do not hand-edit release entries unless asked. When adding a **new project**, create all of:
 
 1. `_data/<Project>.yml`
-2. `<Project>/index.html` with this front matter, followed by the description (no `<h1>`: the layout renders it; start sections at `<h2>`):
+2. `<Project>/index.html` with this front matter. The description is either `<Project>/README.md` (preferred, set `readme:`) or HTML after the front matter (no `<h1>`: the layout renders it; start sections at `<h2>`):
    ```yaml
    layout: project
    title: Display name          # sidebar, card, hero and <title>
@@ -67,8 +68,18 @@ New releases are normally committed by the release pipelines of the source repos
    icon: AB                     # 2-3 letters for the coloured tile
    tagline: One-line summary
    platforms: [Android 5.0+, .NET MAUI]
+   readme: README.md            # optional; file next to index.html
    ```
 3. `<Project>/latest.json` (front matter: `layout: latest-json`, `permalink: /<Project>/latest.json`, `project: <Project>`)
+
+## Project description from README.md
+
+The description of a project is its source repository's `README.md`, copied as is into `<Project>/README.md` (plus the images/videos it references, at the same relative paths). The copy step must not modify it; everything site-specific happens at build time:
+
+- `index.html` names it with `readme: README.md` in the front matter; `_layouts/project.html` reads it with `include_relative`, renders it with `markdownify` (kramdown GFM) and drops its leading `# Title` (the hero shows the title).
+- `js/markdown_media.js` turns image-link paragraphs into a `.gallery` and video links into a `<video>`.
+- `README.md` has no front matter, so Jekyll copies it as a static file (`jekyll-optional-front-matter` skips READMEs, and `readme_index` is disabled in `_config.yml` so it never replaces `index.html`).
+- Limitation: `include_relative` runs the file through Liquid, so `{{ ... }}` / `{% ... %}` anywhere in the README (code blocks included) is evaluated: it renders wrongly or fails the build.
 
 ## Release pruning
 
