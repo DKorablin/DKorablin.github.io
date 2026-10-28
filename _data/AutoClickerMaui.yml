@@ -1,3 +1,9 @@
+- tag: "v1.1.6"
+  date: "2026-10-28"
+  files:
+    - name: "AutoClickerMaui-main-.apk"
+      url: "/AutoClickerMaui/v1.1.6/AutoClickerMaui-main-.apk"
+      size: 53249063
 - tag: v1.1.9
   date: '2026-09-27'
   files:
